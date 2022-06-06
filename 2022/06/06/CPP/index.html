@@ -1,0 +1,2089 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>C++基础 | Hello!我是李进.</title>
+        <meta name="author" content="李进">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/image/avatar.jpg">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hello!我是李进.</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Hello!我是李进.</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>C++基础 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/6/6
+        </span>
+        
+        <span class="category">
+            <a href="/categories/学习笔记">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                学习笔记
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Cpp" style="color: #03a9f4">
+                    Cpp
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h2 id="1、基础概念"><a href="#1、基础概念" class="headerlink" title="1、基础概念"></a>1、基础概念</h2><h3 id="1-1、内存分区"><a href="#1-1、内存分区" class="headerlink" title="1.1、内存分区"></a>1.1、内存分区</h3><img src="/2022/06/06/CPP/image-20220329105743805.png" alt="image-20220329105743805" style="zoom:33%;">
+<!-- ![](image-20220329105743805.png) -->
+
+
+<ul>
+<li><p>程序运行前</p>
+<ul>
+<li><p>代码区：只读、共享（多个相同程序运行一段代码）</p>
+</li>
+<li><p>全局区：全局变量、静态变量、常量（字符串常量、<code>const</code>修饰的全局变量）</p>
+<p>全局区分为3部分：</p>
+<ul>
+<li><code>.data</code>和<code>.bss</code>：全局变量、静态变量声明时未初始化或初始为0时，保存在<code>.bss</code>，否则在<code>.data</code>。</li>
+<li>常量区：保存<code>const</code>修饰的全局变量，以及字符串字面量。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>运行时</p>
+<p>堆区和栈区不占用进程地址空间。</p>
+<ul>
+<li>栈区：由系统管理，保存局部变量、局部常量、函数参数值。<code>连续</code>的内存的区域。系统提供相关指令，效率更高。</li>
+<li>堆区：程序员管理，结束时系统回收。堆是<code>不连续</code>的内存区域，获得的空间比较灵活，也比较大，一般速度比较<code>慢</code>，容易产生内存碎片。由语言提供相关指令，效率更低。</li>
+</ul>
+<p>创建在栈上的变量在未初始化时，其内存中会使用<code>cc</code>填充。</p>
+</li>
+</ul>
+<hr>
+<h2 id="2、运算符等"><a href="#2、运算符等" class="headerlink" title="2、运算符等"></a>2、运算符等</h2><h3 id="2-1、运算符"><a href="#2-1、运算符" class="headerlink" title="2.1、运算符"></a>2.1、运算符</h3><h4 id="2-1-1、-x3D-x3D"><a href="#2-1-1、-x3D-x3D" class="headerlink" title="2.1.1、&#x3D;&#x3D;"></a>2.1.1、&#x3D;&#x3D;</h4><p>如果比较的是引用型对象，则比较两者地址，如string应该用<code>a.compare(b)</code>比较是否相等		</p>
+<h4 id="2-1-2、"><a href="#2-1-2、" class="headerlink" title="2.1.2、##"></a>2.1.2、##</h4><p>在宏定义中表示拼接字符，如<code>L###funcname</code>表示<code>L#funcname</code></p>
+<pre><code class="c++">#define toString(a) #a 
+#define link(a,b) a##b
+int a = 0, ab = 1;
+cout &lt;&lt; toString(a); // a
+cout &lt;&lt; link(a,b); // 1
+</code></pre>
+<h4 id="2-1-3-、-amp-amp"><a href="#2-1-3-、-amp-amp" class="headerlink" title="2.1.3 、&amp;&amp;"></a>2.1.3 、&amp;&amp;</h4><p>右值引用：非 <code>const</code> 右值引用只能操作右值</p>
+<pre><code class="c++">A(const A&amp;&amp;); //移动构造函数使用右值引用
+</code></pre>
+<h4 id="2-1-4-、-amp"><a href="#2-1-4-、-amp" class="headerlink" title="2.1.4 、&amp;"></a>2.1.4 、&amp;</h4><p>取址：<code>int* a = &amp;b;</code></p>
+<p>引用：<code>int&amp;a = b;</code></p>
+<p>指针和引用的区别</p>
+<ul>
+<li>引用不可以为null</li>
+<li>引用不可以更改其指向对象				</li>
+<li>引用创建时便初始化</li>
+<li><code>sizeof</code> 引用”得到的是所指向的变量(对象)的大小，而“<code>sizeof</code> 指针”得到的是指针本身的大小；</li>
+<li>指针和引用的自增(++)运算意义不一样；</li>
+<li>引用是类型安全的，而指针不是</li>
+</ul>
+<p>本质：就是指针常量<code>const int* const</code></p>
+<p>常量引用</p>
+<pre><code class="c++">const int &amp;a = 10;
+//编译器会自动修改为
+int tmp = 10;
+const int &amp;a = tmp;
+</code></pre>
+<pre><code class="c++">int &amp;a = 10; // 报错,因为10不在内存中
+</code></pre>
+<h4 id="2-1-5、-gt"><a href="#2-1-5、-gt" class="headerlink" title="2.1.5、-&gt;"></a>2.1.5、<code>-&gt;</code></h4><p>重载：</p>
+<pre><code class="c++">class E&#123; public: void Print()&#123;&#125;; &#125;;
+class ScopePtr&#123;
+public:  E *p;
+    E* operator-&gt;() const &#123; return p; &#125;
+&#125;;
+ScopePtr p;
+p-&gt;Print();
+</code></pre>
+<p>获取成员在类中的偏移：</p>
+<pre><code class="c++">class A &#123; public: float a, b, c; &#125;;
+int offset1 = (int)&amp;((A*)nullptr)-&gt;a; //0
+int offset2 = (int)&amp;((A*)nullptr)-&gt;b; //4
+int offset3 = (int)&amp;((A*)nullptr)-&gt;c; //8
+
+A* tmp = (A*)nullptr; // 0x00000000
+float* tmp2 = &amp;(tmp-&gt;b); // 0x00000004
+int tmp3 = (int)tmp2; // 4
+</code></pre>
+<h3 id="2-2-、关键字"><a href="#2-2-、关键字" class="headerlink" title="2.2 、关键字"></a>2.2 、关键字</h3><h4 id="2-2-1、const"><a href="#2-2-1、const" class="headerlink" title="2.2.1、const"></a>2.2.1、<code>const</code></h4><p>可以修饰普通变量，也可以修饰类的成员。不能修饰类外的函数。</p>
+<pre><code class="c++">const int a[n];
+const vector&lt;int&gt; a(n); // vector的长度和内容不变,与上一行等价
+</code></pre>
+<p>常量指针和指针常量</p>
+<pre><code class="c++">const int const *a; //等价于const int*，常量指针
+int* const a; //指针常量
+const int* const a;//指向常量的指针常量
+const *int a;//非法，*前面必须是类型名
+</code></pre>
+<p>修饰成员函数时与常引用搭配：</p>
+<pre><code class="c++">class A&#123; public: int x; int GetX() const &#123; return x; &#125; &#125;;
+void func(const A&amp; a)&#123; int x = a.GetX(); &#125; // 可行，因为GetX保证不会修改a。
+class A&#123; public: int x; int GetX() &#123; return x; &#125; &#125;;
+void func(const A&amp; a)&#123; int x = a.GetX(); &#125; // 报错，因为GetX可能会修改a。
+</code></pre>
+<p>注意：</p>
+<ul>
+<li><p><code>const</code>修饰成员函数时，只限制类的成员，类外的变量可以修改，也可调用类外的函数。</p>
+</li>
+<li><p><code>const</code>修饰成员函数时，如果返回的类型是引用，则返回类型也要有<code>const</code>修饰。</p>
+</li>
+<li><p>const不能和static同时修饰成员函数</p>
+<pre><code class="c++">class A&#123; static RendererAPI GetAPI() const &#123;&#125; &#125;; //报错
+</code></pre>
+</li>
+</ul>
+<h4 id="2-2-2、typedef"><a href="#2-2-2、typedef" class="headerlink" title="2.2.2、typedef"></a>2.2.2、typedef</h4><p>定义别名</p>
+<pre><code class="c++">typedef int a[10]; // a 是一个包含10个int的数组的别名
+
+typedef void* (*GLADloadproc)(const char *name);
+typedef void* (*)(const char *name) GLADloadproc;
+//GLADloadproc是指向一个返回void*，参数为const char *name的函数指针
+</code></pre>
+<h4 id="2-2-3、delete"><a href="#2-2-3、delete" class="headerlink" title="2.2.3、delete"></a>2.2.3、delete</h4><p>delete释放堆上的内存时</p>
+<ul>
+<li>将对应内存的值设为随机值（而栈上的变量离开作用域释放时不会修改值，栈指针只是简单的移动）</li>
+<li>指针指向的地址不变</li>
+</ul>
+<h4 id="2-2-4、static"><a href="#2-2-4、static" class="headerlink" title="2.2.4、static"></a>2.2.4、static</h4><p>static在c++14后用于单例时是线程安全的，不需要额外加锁。</p>
+<ul>
+<li><p>在类或结构体外：表示变量或函数仅在当前翻译单元可见</p>
+</li>
+<li><p>类或结构体内：表示类实例共享成员。父类的static成员和子类继承的对应的static成员是同一份。</p>
+<pre><code class="c++">class A &#123; private: static int x; &#125;;
+class B :public A &#123; &#125;;
+int B::x = 1; //可以通过子类的域解析初始化父类的static成员
+</code></pre>
+</li>
+<li><p>函数作用域内的static变量：第一次进入函数时创建该变量，之后不会再创建，并一直存在直到程序结束。但是仅在该作用域内可以访问。</p>
+</li>
+<li><p><code>static</code>成员函数不能同时用<code>virtual、const、volatile</code>修饰</p>
+<pre><code class="c++">class A&#123; static RendererAPI GetAPI() const &#123;&#125; &#125;; //报错
+</code></pre>
+</li>
+</ul>
+<h4 id="2-2-5、枚举类"><a href="#2-2-5、枚举类" class="headerlink" title="2.2.5、枚举类"></a>2.2.5、枚举类</h4><pre><code class="c++">enum class Type:char&#123; A, B &#125;; //底层类型和enum一样只能是整形int、char等
+</code></pre>
+<p>与enum的区别：</p>
+<ul>
+<li>枚举中的名称只在<code>Type</code>作用域下，无法直接通过枚举中的名字访问。如只能为<code>Type::A</code>.而<code>enum</code>可以直接用A访问，导致与其他同名的变量或函数冲突。</li>
+<li>枚举类对象不可以与整形隐式地互相转换。而<code>enum</code>可以。</li>
+</ul>
+<h3 id="2-3、基本类型"><a href="#2-3、基本类型" class="headerlink" title="2.3、基本类型"></a>2.3、基本类型</h3><h4 id="2-3-1、字符串"><a href="#2-3-1、字符串" class="headerlink" title="2.3.1、字符串"></a>2.3.1、字符串</h4><ul>
+<li><p>字符串字面量：</p>
+<pre><code class="c++">const char* c = &quot;test&quot;;
+const wchar_t* c2 = L&quot;test&quot;;
+const char16_t* c3 = u&quot;test&quot;;
+const char32_t* c4 = U&quot;test&quot;;
+</code></pre>
+<ul>
+<li><p><code>char</code>：每个字符占1字节，“test”保存在常量段中的内容为<code>&#39;test&#39;, 00H</code>，其中<code>00H</code>表示<code>\0</code>。</p>
+</li>
+<li><p><code>wchar_t</code>：每个字符占2字节，常量段中的内容为</p>
+<pre><code class="assembly">&#39;t&#39;, 00H, &#39;e&#39;, 00H, &#39;s&#39;, 00H, &#39;t&#39;, 00H, 00H, 00H
+</code></pre>
+</li>
+<li><p><code>char16_t</code>：每个字符占2字节，和<code>wchar_t</code>相同，如果两者内容相同则指向同一地址的字面量</p>
+<ul>
+<li><p><code>char32_t</code>：每个字符占4字节，常量段中的内容为</p>
+<pre><code class="assembly">&#39;t&#39;, 00H, 00H, 00H, 
+&#39;e&#39;, 00H, 00H, 00H, 
+&#39;s&#39;, 00H, 00H, 00H, 
+&#39;t&#39;, 00H, 00H, 00H, 
+00H, 00H, 00H, 00H
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>作用：由于不同编译器可能<code>char</code>和<code>wchar</code>的大小不同，所以可以通过<code>char16</code>和<code>char32</code>指定。</p>
+</li>
+<li><p>定义字符串时如果使用字面量拼接，中间不要<code>+</code>，否则报错：</p>
+<pre><code class="c++">const char* c = &quot;line1&quot;
+        &quot;line2&quot;;
+</code></pre>
+<pre><code>&#39;line1line2&#39;, 00H
+</code></pre>
+</li>
+</ul>
+<h3 id="2-4、类型转换"><a href="#2-4、类型转换" class="headerlink" title="2.4、类型转换"></a>2.4、类型转换</h3><h4 id="2-4-1、static-cast"><a href="#2-4-1、static-cast" class="headerlink" title="2.4.1、static_cast"></a>2.4.1、<code>static_cast</code></h4><p>c风格的类型转换，与一般的隐式转换和显示转换所做的相同。</p>
+<p>不能用于指针类型的转换。</p>
+<h4 id="2-4-2、reinterpret-cast"><a href="#2-4-2、reinterpret-cast" class="headerlink" title="2.4.2、reinterpret_cast"></a>2.4.2、<code>reinterpret_cast</code></h4><p>类型双关。只对指针有效，即将指针所指内存中的内容解释为目标类型。</p>
+<pre><code class="c++">int x = 1;
+double x2 = static_cast&lt;double&gt;(x); // x2 = 1.0000
+double x3 = *(reinterpret_cast&lt;double*&gt;(&amp;x)); // -4.5917540251594387e-30
+</code></pre>
+<h4 id="2-4-3、dynamic-cast"><a href="#2-4-3、dynamic-cast" class="headerlink" title="2.4.3、dynamic_cast"></a>2.4.3、<code>dynamic_cast</code></h4><p>用于继承关系间的转换，只能用于包含虚函数表的类。如果一个父类指针实际指向目标子类，则可将该指针转换为子类指针，否则返回空指针。</p>
+<p>原理：使用<code>RTTI（Run Time Type Info）</code>记录类型信息，增加了开销。如果在VS设置中关闭RTTI，再使用<code>dynamic_cast</code>则会因为无法访问<code>RTTI</code>而报错。</p>
+<p>2.4.4、<code>const_cast</code></p>
+<p>只作用于指针。可以通过指针形式修改常量。</p>
+<pre><code class="c++">const int x = 1;
+int* px = const_cast&lt;int*&gt; (&amp;x);
+(*px) = 2; // x = 2
+</code></pre>
+<hr>
+<h2 id="3、指针和数组"><a href="#3、指针和数组" class="headerlink" title="3、指针和数组"></a>3、指针和数组</h2><h3 id="指针数组和数组指针"><a href="#指针数组和数组指针" class="headerlink" title="指针数组和数组指针"></a>指针数组和数组指针</h3><pre><code class="c++">int *p[10]; //指针数组
+int (*p)[10]; //数组指针
+(int *)p[10]; //强制类型转换
+</code></pre>
+<h3 id="3-2、智能指针"><a href="#3-2、智能指针" class="headerlink" title="3.2、智能指针"></a>3.2、智能指针</h3><p>头文件：<code>&lt;memory&gt;</code></p>
+<p>智能指针主要是为了防止堆资源分配后忘记释放导致内存泄露。</p>
+<pre><code class="c++">void UseRawPointer()&#123;
+    // Using a raw pointer -- not recommended.
+    Song* pSong = new Song(L&quot;Nothing on You&quot;, L&quot;Bruno Mars&quot;); 
+    // Use pSong...
+    // Don&#39;t forget to delete!
+    delete pSong;   
+&#125;
+
+void UseSmartPointer()&#123;
+    // Declare a smart pointer on stack and pass it the raw pointer.
+    unique_ptr&lt;Song&gt; song2(new Song(L&quot;Nothing on You&quot;, L&quot;Bruno Mars&quot;));
+    // Use song2...
+    wstring s = song2-&gt;duration_;
+    //...
+&#125; // song2 is deleted automatically here.
+</code></pre>
+<p>Efficient17：始终在单独的代码行上创建智能指针，而绝不在<code>参数列表</code>中创建智能指针，这样就不会由于某些参数列表分配规则而发生轻微泄露资源的情况。</p>
+<p>智能指针类型：</p>
+<ul>
+<li><p><code>unique_ptr</code></p>
+<p>4字节，仅有<code>一个实例</code>拥有<code>内存所有权</code>，用于不能被多个实例共享的内存管理。可以通过<code>move(unique_ptr)</code>作为右值传递给函数参数，如果函数参数是左值常量，则可以直接传递。</p>
+<pre><code class="c++">std::unique_ptr&lt;Fraction&gt; f1&#123; new Fraction&#123; 3, 5 &#125; &#125;;
+std::unique_ptr&lt;Fraction&gt; f2; // 初始化为nullptr
+f2 = f1 // 非法，不允许左值赋值
+f2 = std::move(f1);  // 此时f1转移到f2，f1变为nullptr
+
+// 也可以用 std::unique_ptr&lt;Resource&gt; res
+void takeOwnerShip(std::unique_ptr&lt;Resource&gt;&amp;&amp; res)&#123;&#125;
+auto ptr = std::make_unique&lt;Resource&gt;();
+takeOwnerShip(ptr); // 非法
+takeOwnerShip(std::move(ptr)); // 必须传递右值
+// 左值常量
+void useResource(const std::unique_ptr&lt;Resource&gt;&amp; res)&#123;&#125;
+useResource(ptr);
+</code></pre>
+</li>
+<li><p><code>shared_ptr</code></p>
+<p><code>shared_ptr</code>与<code>unique_ptr</code>的主要区别在于前者是使用引用计数的智能指针。当最后一个引用对象离开其作用域时，才会释放这块内存。主要用于多线程。</p>
+<p>和<code>weak_ptr</code>有共同的父类，继承的是父类中的<code>控制块</code>，包括引用计数、弱引用计数等，自身的成员是一个指针。</p>
+<p>注意：<code>shared_ptr</code>不能用于管理C语言风格的动态数组。</p>
+<p>不要使用同一块内存初始化多个<code>shared_ptr</code>，而是通过拷贝赋值。</p>
+<pre><code class="c++">Resource* res = new Resource;
+shared_ptr&lt;Resource&gt; ptr1&#123; res &#125;;
+cout &lt;&lt; ptr1.use_count() &lt;&lt; endl;  // output: 1
+&#123;
+    // 用同一块内存初始化
+    std::shared_ptr&lt;Resource&gt; ptr2&#123; res &#125;;
+    cout &lt;&lt; ptr1.use_count() &lt;&lt; endl;  // output: 1
+    cout &lt;&lt; ptr2.use_count() &lt;&lt; endl;  // output: 1
+&#125;
+// 此时ptr2对象析构了, output：Resource destroyed
+cout &lt;&lt; ptr1.use_count() &lt;&lt; endl;  // output: 1
+//最终会崩溃，因为通过相同内存初始化的两个指针没有通信，不知道对方的存在，同一块内存会被释放两次
+</code></pre>
+<p><code>shared_ptr</code>有可能出现内存无法被释放的情况，出现类似<code>死锁</code>的<code>循环引用</code>。</p>
+<pre><code class="c++">class Person&#123;
+public:
+    Person(const string&amp; name): m_name(name)&#123;&#125;
+    friend bool partnerUp(std::shared_ptr&lt;Person&gt;&amp; p1, std::shared_ptr&lt;Person&gt;&amp; p2)&#123;
+        if (!p1 || !p2) return false;
+        p1-&gt;m_partner = p2;
+        p2-&gt;m_partner = p1;
+    &#125;
+private:
+    string m_name;
+    std::shared_ptr&lt;Person&gt; m_partner;
+&#125;;
+&#123;
+    auto p1 = std::make_shared&lt;Person&gt;(&quot;Lucy&quot;);
+    auto p2 = std::make_shared&lt;Person&gt;(&quot;Ricky&quot;);
+    partnerUp(p1, p2);  // 互相设为伙伴
+&#125;//最终由于引用不能归0，无法释放导致泄露。
+</code></pre>
+</li>
+<li><p><code>weak_ptr</code></p>
+<p>用于解决<code>shared_ptr</code>的<code>循环引用</code>。<code>weak_ptr</code>可以包含由<code>shared_ptr</code>所管理的内存的引用。但是它仅仅是旁观者，并不是所有者。<code>weak_ptr</code>不拥有这块内存，不会计数，也不会阻止<code>shared_ptr</code>释放其内存。但是它可以通过<code>lock()</code>方法返回一个<code>shared_ptr</code>对象，从而访问这块内存。</p>
+<pre><code class="c++">class Person&#123;
+public:
+    ......
+private:
+    string m_name;
+    std::weak_ptr&lt;Person&gt; m_partner;
+&#125;;
+&#123;
+    auto p1 = std::make_shared&lt;Person&gt;(&quot;Lucy&quot;);
+    auto p2 = std::make_shared&lt;Person&gt;(&quot;Ricky&quot;);
+    partnerUp(p1, p2);  // 互相设为伙伴
+&#125;//可以释放
+</code></pre>
+<pre><code class="c++">weak_ptr&lt;A&gt; p = make_shared&lt;A&gt;(); //需要由shared_ptr初始化。
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="4、函数"><a href="#4、函数" class="headerlink" title="4、函数"></a>4、函数</h2><h3 id="4-1、参数"><a href="#4-1、参数" class="headerlink" title="4.1、参数"></a>4.1、参数</h3><h4 id="4-1-1、参数默认值"><a href="#4-1-1、参数默认值" class="headerlink" title="4.1.1、参数默认值"></a>4.1.1、参数默认值</h4><p>​	声明和实现只能有一个有默认值。</p>
+<h4 id="4-1-2、占位参数"><a href="#4-1-2、占位参数" class="headerlink" title="4.1.2、占位参数"></a>4.1.2、占位参数</h4><p>​	只有类型没有名字，调用时必须传，可以有默认值。</p>
+<h3 id="4-2、可变参数列表函数"><a href="#4-2、可变参数列表函数" class="headerlink" title="4.2、可变参数列表函数"></a>4.2、可变参数列表函数</h3><pre><code class="c++">#include &lt;stdarg.h&gt;
+void func(int argNum, ...)&#123;
+    va_list args;
+    va_start(args, argNum); //通过argNum确定参数个数
+    while(argNum--)&#123;
+        int arg = va_arg(args, int); //int确定参数类型
+    &#125; 
+&#125;
+</code></pre>
+<h3 id="4-3、可变参数模板"><a href="#4-3、可变参数模板" class="headerlink" title="4.3、可变参数模板"></a>4.3、可变参数模板</h3><pre><code class="c++">void myPrint()&#123;&#125;
+
+template &lt;class T, class... Args&gt;
+void myPrint(T fisrtArg, Args... args)&#123;
+    cout &lt;&lt; fisrtArg &lt;&lt; endl;
+    myPrint(args...); // 逐层剥离参数，所以需要一个无参的myPrint()
+&#125;
+</code></pre>
+<pre><code class="c++">template &lt;class T&gt;
+void myPrint(initializer_list&lt;T&gt; args)&#123;
+    for(auto arg:args)&#123;
+        cout &lt;&lt; arg &lt;&lt; endl;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="4-4、函数调用过程"><a href="#4-4、函数调用过程" class="headerlink" title="4.4、函数调用过程"></a>4.4、函数调用过程</h3><img src="/2022/06/06/CPP/image-20220418191402896.png" alt="image-20220418191402896" style="zoom: 33%;">
+
+<pre><code class="c++">void foo(int n)&#123;&#125;
+void bar(int n)&#123; int a = n+1; foo(a); &#125;
+int main()&#123; bar(42); &#125;
+</code></pre>
+<ul>
+<li>先将参数压如栈中</li>
+<li>把下一行代码的指令地址作为返回地址压如栈中</li>
+<li>把当前寄存器的内容压如栈中</li>
+<li>栈帧：图中每种颜色代表一个栈帧，是分配给函数使用的空间，共三个栈帧</li>
+</ul>
+<hr>
+<h2 id="5、类和对象"><a href="#5、类和对象" class="headerlink" title="5、类和对象"></a>5、类和对象</h2><h3 id="5-1、三大特性"><a href="#5-1、三大特性" class="headerlink" title="5.1、三大特性"></a>5.1、三大特性</h3><ol>
+<li>封装：<ul>
+<li>将属性和行为作为一个整体</li>
+<li>权限控制</li>
+</ul>
+</li>
+<li>继承</li>
+<li>多态</li>
+</ol>
+<h3 id="5-2、成员"><a href="#5-2、成员" class="headerlink" title="5.2、成员"></a>5.2、成员</h3><h4 id="5-2-1、成员变量"><a href="#5-2-1、成员变量" class="headerlink" title="5.2.1、成员变量"></a>5.2.1、成员变量</h4><ul>
+<li><p>静态成员变量</p>
+<p>定义：类内声明，类外定义和初始化。在编译阶段分配内存，存放在全局区。类对象共享。</p>
+<p><code>const static</code>(同<code>static const</code>)成员变量</p>
+<pre><code class="c++">class A&#123;
+public:
+    static int a;
+    static const int b = 10; //可以在类的定义体中初始化
+    A()&#123; cout&lt;&lt; &quot;create A.&quot;&lt;&lt;endl; &#125;
+    ~A()&#123; cout&lt;&lt; &quot;delete A.&quot;&lt;&lt;endl; &#125;
+    A(const A&amp;)&#123; cout&lt;&lt; &quot;copy A.&quot;&lt;&lt;endl; &#125;
+&#125;;
+int A::a = 1;
+const int A::b;//定义仍在外面
+//在类中设置初始值后，如果外部没有定义会无法访问其地址，但仍可通过对象访问值。
+</code></pre>
+<p>访问：通过类名或对象名访问。</p>
+</li>
+<li><p>成员对象<br>先调用成员对象的构造，析构时则相反</p>
+</li>
+</ul>
+<h4 id="5-2-2、成员函数"><a href="#5-2-2、成员函数" class="headerlink" title="5.2.2、成员函数"></a>5.2.2、成员函数</h4><ul>
+<li><p>声明和定义：</p>
+<p>如果类内声明的同时给出实现，则为<code>内联</code>。内联以空间换时间，避免了函数调用的一系列开销。但如果函数体内花费的时间比调用开销大，则不宜用内联。</p>
+<p>如果类内声明类外实现则不是内联，但可以在<code>实现处</code>用关键字<code>inline</code>转为内联</p>
+</li>
+<li><p>调用方式：调用类的方法使用::，调用对象方法使用.或-&gt;</p>
+</li>
+<li><p>默认提供：无参构造、析构、拷贝</p>
+<ul>
+<li><p>如果定义了有参构造则不会提供默认构造，但会提供拷贝构造</p>
+</li>
+<li><p>如果提供了拷贝构造，则不再提供默认的无参、拷贝。</p>
+</li>
+</ul>
+</li>
+<li><p>静态成员函数</p>
+<p><code>static</code>静态成员函数<strong>只能</strong>调用<code>静态成员函数</code>和<code>静态成员变量</code>。且静态成员函数不能声明为<code>const</code>,<code>virtual</code>,<code>volatile</code>。</p>
+<p>访问：同静态成员变量，通过对象或类名。因为静态函数无法区分调用该方法的对象，所以不能访问非静态成员变量&#x2F;函数。</p>
+</li>
+<li><p>构造函数</p>
+<ul>
+<li><p>无参构造函数</p>
+</li>
+<li><p>有参构造</p>
+</li>
+<li><p>拷贝构造函数</p>
+<p>如果有<code>指针</code>或<code>动态内存分配</code>，则必须给出拷贝构造函数避免析构时同一内存多次释放。</p>
+<p>通过<code>=</code>用相同对象赋值时会自动调用拷贝构造。</p>
+</li>
+<li><p>移动构造函数c++11（<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7847.html%EF%BC%89">http://c.biancheng.net/view/7847.html）</a></p>
+<p>​	作用：</p>
+<p>​		避免深拷贝时由于大空间拷贝导致的效率降低。<br>​		以移动而非深拷贝的方式初始化含有指针成员的类对象。将其他对象（通常是临时对象）拥有的内存资源“移为已用”。<br>​		引入了右值引用的语法，实现移动语义。</p>
+<p>​	注意：</p>
+<ul>
+<li>使用临时对象初始化当前类的对象，优先调用移动构造函数。</li>
+<li>左值初始化调用拷贝构造，右值初始化调用移动构造</li>
+<li><code>std::move()</code> 函数，可以将左值强制转换成对应的右值，由此便可以使用移动构造函数。</li>
+</ul>
+</li>
+<li><p>调用：</p>
+<ul>
+<li><p>调用时机：<br>相同类对象赋值；<br>值传递作为参数；<br>值方式返回局部对象。</p>
+</li>
+<li><p>调用方法</p>
+<ul>
+<li>括号法</li>
+</ul>
+<pre><code class="c++">A a; //无参
+A a(args); //有参
+A a = arg; //隐式转换
+//拷贝构造
+A a; 
+A a2(a);
+</code></pre>
+<p>​	注：使用 <code>explicit</code> 修饰一个参数的构造函数，防止隐式类型转换</p>
+<ul>
+<li>显示法</li>
+</ul>
+<pre><code class="c++">A a = A(); //无参
+A a = A(args); //有参
+A(args); //右侧A(args)单独在一行则称为匿名对象,匿名对象创建后立刻执行析构释放
+//拷贝构造
+A b; 
+A a = A(b);
+</code></pre>
+<p>注：</p>
+<ul>
+<li>A a()；会被认为是函数声明，因此不能通过此方式调用默认构造函数。</li>
+<li>不要利用拷贝构造函数初始化匿名对象</li>
+</ul>
+<pre><code class="c++">A a;
+A(a); // 报错，等价于A a，发生重定义
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>析构函数</p>
+</li>
+<li><p>初始化列表和构造函数的区别<br>初始化列表效率更高。当类中包含复杂对象时，初始化列表会少调用一次成员对象的构造函数，节省时间。</p>
+<pre><code class="c++">class E&#123; public: E()&#123; cout &lt;&lt; &quot;create&quot; &lt;&lt; endl; &#125; &#125;;
+class A&#123;
+public: E e;
+    A()&#123; e = E(); &#125; // 相当于先E e;调用一次默认构造，再e = E();调用一次默认构造。
+    A(): e(E())&#123;&#125; // e = E();调用一次构造。
+    A(): e()&#123;&#125; // E e();调用一次构造。
+&#125;;
+</code></pre>
+<p>​</p>
+</li>
+</ul>
+<p>					</p>
+<h3 id="5-3、类和结构体"><a href="#5-3、类和结构体" class="headerlink" title="5.3、类和结构体"></a>5.3、类和结构体</h3><ul>
+<li><p>区别：</p>
+<ul>
+<li><p>结构体成员默认是公有的，类成员默认是私有的</p>
+</li>
+<li><p>结构体只能包含成员变量，而类可以包含函数，结构体也可以使用函数指针实现结构体函数</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>	</p>
+<h3 id="5-4、c-对象模型和this指针"><a href="#5-4、c-对象模型和this指针" class="headerlink" title="5.4、c++对象模型和this指针"></a>5.4、c++对象模型和this指针</h3><h4 id="5-4-1、成员变量和成员函数分开存储"><a href="#5-4-1、成员变量和成员函数分开存储" class="headerlink" title="5.4.1、成员变量和成员函数分开存储"></a>5.4.1、成员变量和成员函数分开存储</h4><p>​	类的<code>成员变量</code>和<code>成员函数</code>分开存储。<br>​	只有<code>非静态成员变量</code>才属于类的<code>对象</code>。<br>​	<code>空对象</code>占用空间为1字节，为了区分内存中的空对象。</p>
+<pre><code class="c++">class A&#123;
+public:
+    int mA; // 非静态成员变量占对象空间
+    static int mB; //不占对象空间
+    void func()&#123;&#125; //也不占对象空间，所有函数共享一个函数实例
+&#125;;
+</code></pre>
+<h4 id="5-4-2、this指针"><a href="#5-4-2、this指针" class="headerlink" title="5.4.2、this指针"></a>5.4.2、this指针</h4><p>每个成员函数只有一份函数实例，多个同类型对象共用这一段代码。<br>问题：这块函数代码如何区分那个对象调用自己？</p>
+<p>答案：通过特殊的对象指针this。<br>this指向被调用的成员函数所属的对象。</p>
+<p>this指针不需要定义，直接使用。</p>
+<p>本质：<strong>指针常量</strong>，指向不可修改。存放在寄存器中，对象调用时对自身取址传入该参数。</p>
+<p>用途：</p>
+<ul>
+<li><p>形参和成员变量重名时用this区分。</p>
+</li>
+<li><p>类的非静态成员函数中返回对象本身。</p>
+<pre><code class="c++">class A&#123;
+ public:
+    //返回引用&amp;，否则会调用拷贝构造 产生匿名对象
+    //返回引用的好处是可以链式调用
+    //如：a.func().func().func();
+    A&amp; func()&#123; return *this; &#125;
+    //也可以使用*,但不能链式调用
+    A* func()&#123; return this; &#125;
+&#125;;
+</code></pre>
+</li>
+</ul>
+<h4 id="5-4-3、空指针访问成员函数"><a href="#5-4-3、空指针访问成员函数" class="headerlink" title="5.4.3、空指针访问成员函数"></a>5.4.3、空指针访问成员函数</h4><p>空指针也可以调用成员函数，但如果函数内用到this指针（如成员变量的访问）则会报错。</p>
+<pre><code class="c++">class A&#123;
+public:
+    int m_a;
+    void func()&#123;&#125;
+    void func2()&#123; cout&lt;&lt;m_a;&#125;
+&#125;;
+A* p = nullptr;
+p-&gt;func();//正确
+p-&gt;func2();//出错
+</code></pre>
+<h4 id="5-4-4、const修饰成员函数"><a href="#5-4-4、const修饰成员函数" class="headerlink" title="5.4.4、const修饰成员函数"></a>5.4.4、const修饰成员函数</h4><p><strong>常函数</strong>：</p>
+<ul>
+<li>成员函数后加<code>const</code>为常函数 <code>void func() const&#123;&#125;</code></li>
+<li>常函数内不可以修改成员属性</li>
+<li>成员属性声明时加<code>mutable</code>后，则在常函数或常对象中可以修改。</li>
+<li>常函数只能调用常函数</li>
+</ul>
+<p><strong>常对象：</strong></p>
+<ul>
+<li>声明对象前加<code>const</code></li>
+<li><code>常对象</code>只能调用<code>常函数</code></li>
+</ul>
+<h3 id="5-5、友元"><a href="#5-5、友元" class="headerlink" title="5.5、友元"></a>5.5、友元</h3><p>让一个函数或类可以访问当前类的私有成员</p>
+<p>三种实现：</p>
+<ul>
+<li>全局函数做友元</li>
+<li>类做友元</li>
+<li>成员函数做友元</li>
+</ul>
+<pre><code class="c++">void func(A *a);
+class A;
+class B&#123;
+    void funcB(A *a);
+&#125;;
+class A&#123;
+    friend void func(A *a);//全局函数做友元
+    friend class B;//类做友元
+    friend void B::funcB(A *a);//成员函数做友元
+&#125;;
+</code></pre>
+<p>友元关系与继承</p>
+<ul>
+<li>友元关系不可传递，即A是B友元，C是A友元，则C不是B友元。</li>
+<li>A的友元类B，C是B的子类，则C不是A的友元。</li>
+<li>A的友元类B，C是A的子类，则B不是C的友元，但B可以访问C中继承的A的私有成员。</li>
+</ul>
+<h3 id="5-6、运算符重载"><a href="#5-6、运算符重载" class="headerlink" title="5.6、运算符重载"></a>5.6、运算符重载</h3><p>包括成员函数重载和全局函数重载</p>
+<p>运算法重载也可以发生函数重载</p>
+<p>不能重载：<code>::</code>，<code>?:</code>，<code>.</code>，<code>#</code>，<code>sizeof</code>，<code>.*</code>，<code>-&gt;</code>*</p>
+<h4 id="5-6-1、-、-、-、-x2F"><a href="#5-6-1、-、-、-、-x2F" class="headerlink" title="5.6.1、+、-、*、&#x2F;"></a>5.6.1、+、-、*、&#x2F;</h4><pre><code class="c++">//本质
+A A::func(A&amp; a)&#123;
+    A tmp;
+    tmp.x = this-&gt;x + a.x;
+    return A;
+&#125;
+//使用成员函数重载,相当于替换函数名
+A A::operator+(A&amp; a)&#123;...&#125;
+A a3 = a1.operator+(a2); // 简化后：A a3 = a1 + a2;
+
+//全局函数重载
+A operator+(A &amp;a1, A &amp;a2);
+A a3 = operator+(a1, a2);// 简化后：A a3 = a1 + a2;
+</code></pre>
+<h4 id="5-6-2、-lt-lt"><a href="#5-6-2、-lt-lt" class="headerlink" title="5.6.2、&lt;&lt;"></a>5.6.2、&lt;&lt;</h4><pre><code class="c++">//成员函数重载
+void operator&lt;&lt;(cout); 
+// 简化后是 a &lt;&lt; cout，顺序不对, 且无法链式调用，所以要全局重载
+
+//全局重载
+ostream&amp; operator&lt;&lt;(ostream &amp;out, A &amp;a)&#123; 
+    out &lt;&lt; a.x;
+    return out;
+&#125;
+cout &lt;&lt; a &lt;&lt; endl;
+//然后使用friend将该重载声明为友元，以输出私有成员
+</code></pre>
+<h4 id="5-6-3、-、–"><a href="#5-6-3、-、–" class="headerlink" title="5.6.3、++、–"></a>5.6.3、++、–</h4><pre><code class="c++">//前置
+A&amp; operator++()&#123;
+    ++x;
+    return *this;
+&#125;
+//后置,使用占位参数区分前后置，注意只能用int编译器才能识别
+A operator++(int)&#123;
+    A tmp = *this;//先保存
+    ++x;
+    //返回值，因为使用的临时变量，不能返回引用
+    //因此后置不能链式
+    return tmp;
+&#125;
+</code></pre>
+<h4 id="5-6-4、-x3D"><a href="#5-6-4、-x3D" class="headerlink" title="5.6.4、&#x3D;"></a>5.6.4、&#x3D;</h4><pre><code class="c++">//重载=和重载默认拷贝构造是一样的，如果重载了默认拷贝构造，则=会调用
+//该拷贝构造
+A&amp; operator=(A &amp;a)&#123;
+    //先释放已有堆区
+    if(x != nullptr)&#123;
+        delete x;
+        x = nullptr;
+    &#125;
+    x = new int(*a.x);//深拷贝
+    return *this;
+&#125;
+</code></pre>
+<h4 id="5-6-5、关系运算符"><a href="#5-6-5、关系运算符" class="headerlink" title="5.6.5、关系运算符"></a>5.6.5、关系运算符</h4><pre><code class="c++">bool operator==(A &amp;a)&#123;&#125;			
+</code></pre>
+<h4 id="5-6-6、函数调用运算符"><a href="#5-6-6、函数调用运算符" class="headerlink" title="5.6.6、函数调用运算符()"></a>5.6.6、函数调用运算符()</h4><pre><code class="c++">class A&#123;
+    void operator()(string s); //很像函数调用，所以叫仿函数
+&#125;;
+A a;
+a(&quot;Hello&quot;);
+</code></pre>
+<p>匿名函数对象</p>
+<pre><code class="c++">A()(&quot;Hello&quot;);
+</code></pre>
+<h3 id="5-7、继承"><a href="#5-7、继承" class="headerlink" title="5.7、继承"></a>5.7、继承</h3><h4 id="5-7-1、继承方式"><a href="#5-7-1、继承方式" class="headerlink" title="5.7.1、继承方式"></a>5.7.1、继承方式</h4><ul>
+<li><p>公共继承</p>
+</li>
+<li><p>保护继承</p>
+</li>
+<li><p>私有继承</p>
+<p><img src="/2022/06/06/CPP/image-20220316164333045.png" alt="image-20220316164333045"></p>
+</li>
+</ul>
+<h4 id="5-7-2、继承中的对象模型"><a href="#5-7-2、继承中的对象模型" class="headerlink" title="5.7.2、继承中的对象模型"></a>5.7.2、继承中的对象模型</h4><p>从父类继承过来的成员，哪些在子类对象中？<br>使用VS的开发人员命令工具查看对象模型，在文件目录中键入<br><code>cl /d1 reportSingleClassLayout类名 cpp文件名</code></p>
+<h4 id="5-7-3、继承中同名成员"><a href="#5-7-3、继承中同名成员" class="headerlink" title="5.7.3、继承中同名成员"></a>5.7.3、继承中同名成员</h4><pre><code class="c++">class Base&#123;
+public:
+    void func();
+    void func(int a);
+&#125;;
+class Derive: public Base&#123;
+public:
+    void func();
+&#125;;
+Derive d;
+</code></pre>
+<p>子类同名成员直接访问。<br>父类同名成员需要加作用域。</p>
+<pre><code class="c++">d.func();//调用子类
+d.Base::func();//父类
+</code></pre>
+<p>遮蔽(掩蔽)</p>
+<pre><code class="c++">d.func(1);//报错，因为子类有同名函数，则遮蔽父类中所有同名函数
+d.Base::func(1);//成功
+</code></pre>
+<h4 id="5-7-4、继承中同名静态成员"><a href="#5-7-4、继承中同名静态成员" class="headerlink" title="5.7.4、继承中同名静态成员"></a>5.7.4、继承中同名静态成员</h4><p>通过对象名访问静态成员与5.7.3相同。</p>
+<p>通过类名访问：</p>
+<pre><code class="c++">Derive::x;
+//第一个::代表通过类名，第二个::代表通过作用域
+Derive::Base::x;
+</code></pre>
+<p>注意：继承过来的静态成员和父类中的静态成员地址是一个。</p>
+<h4 id="5-7-5、多继承语法"><a href="#5-7-5、多继承语法" class="headerlink" title="5.7.5、多继承语法"></a>5.7.5、多继承语法</h4><p>语法：<code>class 子类: 继承方式 A, 继承方式 B&#123;&#125;;</code></p>
+<p>不建议使用多继承。因为不同父类可能有同名成员，此时需要使用作用域访问。</p>
+<h4 id="5-7-6、菱形集成"><a href="#5-7-6、菱形集成" class="headerlink" title="5.7.6、菱形集成"></a>5.7.6、菱形集成</h4><p>概念：又叫钻石继承，两个派生类B,C继承同一个类A，而又有一个类D同时继承这B,C。</p>
+<p>问题：</p>
+<ul>
+<li>同名成员二义。可以使用作用域解决。</li>
+<li>两个父类继承了两份祖父成员，造成存储空间浪费。使用<code>虚继承</code>解决。</li>
+</ul>
+<img src="/2022/06/06/CPP/image-20220316174254382.png" alt="image-20220316174254382" style="zoom:33%;">
+
+<p>使用虚继承后：</p>
+<pre><code class="c++">class B: virtual public A&#123;&#125;;
+</code></pre>
+<img src="/2022/06/06/CPP/image-20220316175014242.png" alt="image-20220316175014242" style="zoom: 50%;">
+
+<img src="/2022/06/06/CPP/image-20220316174651096.png" alt="image-20220316174651096" style="zoom:50%;">
+
+<p><code>vbptr</code>指向对应的<code>vbtable</code>。<br>如B的<code>vbptr</code>指向<code>D::$vbtable@B@</code>，然后通过在指针的地址0上加上保存的偏移量20得到虚基类的起始地址。</p>
+<p>访问虚基类的属性：通过子类直接访问。</p>
+<h3 id="5-8、多态"><a href="#5-8、多态" class="headerlink" title="5.8、多态"></a>5.8、多态</h3><p>静态多态：函数重载、运算符重载<br>动态多态：派生类、虚函数实现运行时多态</p>
+<h4 id="5-8-1、区别"><a href="#5-8-1、区别" class="headerlink" title="5.8.1、区别"></a>5.8.1、区别</h4><ul>
+<li><p>静态多态函数地址早绑定 - 编译阶段确定函数地址</p>
+<pre><code class="c++">//编译阶段绑定
+class Animal&#123;
+public: void speak();
+&#125;;
+class Cat: public Animal&#123;
+public: void speak();
+&#125;;
+void doSpeak(Animal &amp;animal)&#123; animal.speak(); &#125;
+Cat cat;
+doSpeak(cat); // 调用的是animal的speak
+</code></pre>
+</li>
+<li><p>动态多态函数地址晚绑定 - 运行阶段确定函数地址</p>
+<pre><code class="c++">//运行阶段绑定
+class Animal&#123;
+public: virtual void speak();
+&#125;;
+Cat cat;
+doSpeak(cat); // 调用的是cat的speak
+</code></pre>
+<p>动态多态满足条件：</p>
+<ul>
+<li>有继承关系</li>
+<li>子类要<code>重写</code>父类虚函数（重写：函数的返回值、函数名、参数完全相同）</li>
+</ul>
+<p>动态多态使用：父类的<code>指针</code>或<code>引用</code> 指向子类对象。</p>
+</li>
+</ul>
+<h4 id="5-8-2、动态多态原理"><a href="#5-8-2、动态多态原理" class="headerlink" title="5.8.2、动态多态原理"></a>5.8.2、动态多态原理</h4><p>类中声明虚函数后，类的大小将会增加4字节(多个虚函数也是一样)，即一个虚函数表指针<code>vfptr</code>。<code>vfptr</code>指向<code>vftable</code>。</p>
+<p><code>vftable</code>内部记录虚函数的地址。</p>
+<p>如果子类没有重写父类虚函数，则子类会继承父类的<code>vfptr</code>和<code>vftable</code>。</p>
+<img src="/2022/06/06/CPP/image-20220316182304572.png" alt="image-20220316182304572" style="zoom: 50%;">
+
+<p>如果重写虚函数：子类继承<code>vftable</code>后会将对应的虚函数地址替换成子类重写的函数的地址。</p>
+<img src="/2022/06/06/CPP/image-20220316182424382.png" alt="image-20220316182424382" style="zoom:50%;">
+
+<p><strong>子类对象使用::可以调用基类的虚函数实现。</strong></p>
+<p>多继承下的虚函数：</p>
+<ul>
+<li>B、C、D均不使用虚继承。</li>
+</ul>
+<img src="/2022/06/06/CPP/image-20220316183158931.png" alt="image-20220316183158931" style="zoom:33%;">
+
+<p>D有两个虚函数表，分别从B和C继承过来。此时如果在D中重写A的虚函数则会修改两张表。</p>
+<img src="/2022/06/06/CPP/image-20220316185739268.png" alt="image-20220316185739268" style="zoom:33%;">
+
+<ul>
+<li><p>B、C使用虚继承：</p>
+<img src="/2022/06/06/CPP/image-20220316184225728.png" alt="image-20220316184225728" style="zoom: 33%;">
+
+<p>D会存在A、B、C的三个虚函数表，这是由于B、C是虚继承，所以当B、C也声明虚函数后，会重新创建一个虚函数表。</p>
+</li>
+<li><p>B、C虚继承，D重写A中的虚函数<code>func1</code>：</p>
+<img src="/2022/06/06/CPP/image-20220316184942732.png" alt="image-20220316184942732" style="zoom:33%;"></li>
+</ul>
+<h4 id="5-8-3、纯虚函数和抽象类"><a href="#5-8-3、纯虚函数和抽象类" class="headerlink" title="5.8.3、纯虚函数和抽象类"></a>5.8.3、纯虚函数和抽象类</h4><p>在多态中，通常父类中的虚函数实现是毫无意义的，主要都是调用子类重写的内容，因此可以将虚函数改为<code>纯虚函数</code>。</p>
+<p><code>抽象类</code>：包含纯虚函数的类。</p>
+<ul>
+<li>无法实例化对象</li>
+<li>子类必须重写纯虚函数，否则也属于抽象类</li>
+</ul>
+<h4 id="5-8-4、虚析构和纯虚析构"><a href="#5-8-4、虚析构和纯虚析构" class="headerlink" title="5.8.4、虚析构和纯虚析构"></a>5.8.4、虚析构和纯虚析构</h4><p>问题：多态使用时，父类指针在delete时无法调用子类的析构代码，导致子类属性开辟的堆内存无法释放。</p>
+<p>解决：父类中的析构函数变为虚析构函数。在父析构函数前添加<code>virtual</code>。</p>
+<p>纯虚析构：包含纯虚析构的类也是抽象类</p>
+<pre><code class="c++">class A&#123;
+public:
+    virtual ~A() = 0;
+&#125;;
+A::~A()&#123;&#125;//父类的纯虚析构也需要有实现以释放父类中开辟的堆内存。
+</code></pre>
+<hr>
+<h2 id="6、文件操作"><a href="#6、文件操作" class="headerlink" title="6、文件操作"></a>6、文件操作</h2><p>通过文件将<code>数据持久化</code></p>
+<p>头文件：<code>&lt;fstream&gt;</code></p>
+<p>文件类型：</p>
+<ul>
+<li>文本文件：以文本的<code>ASCII码</code>形式存储</li>
+<li>二进制文件：以<code>二进制</code>形式存储，一般不能直接读懂。</li>
+</ul>
+<p>操作：</p>
+<ul>
+<li><code>ofstream</code>：写操作</li>
+<li><code>Ifstream</code>：读操作</li>
+<li><code>fstream</code>：读写操作</li>
+</ul>
+<h3 id="6-1、文本文件"><a href="#6-1、文本文件" class="headerlink" title="6.1、文本文件"></a>6.1、文本文件</h3><h4 id="6-1-1、写文件"><a href="#6-1-1、写文件" class="headerlink" title="6.1.1、写文件"></a>6.1.1、写文件</h4><p>步骤：</p>
+<ul>
+<li>创建流对象：<code>ofstream ofs;</code></li>
+<li>打卡文件：<code>ofs.open(&quot;文件路径&quot;, 打开方式);</code></li>
+<li>写数据： <code>ofs&lt;&lt;&quot;写入的数据&quot;;</code></li>
+<li>关闭文件：<code>ofs.close();</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>打开方式</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ios::in</code></td>
+<td>为读文件而打开</td>
+</tr>
+<tr>
+<td><code>ios::out</code></td>
+<td>为写文件而打开</td>
+</tr>
+<tr>
+<td><code>ios::ate</code></td>
+<td>初始位置：文件尾</td>
+</tr>
+<tr>
+<td><code>ios::app</code></td>
+<td>追加方式写文件</td>
+</tr>
+<tr>
+<td><code>ios::trunc</code></td>
+<td>如果文件存在先删除，再创建</td>
+</tr>
+<tr>
+<td><code>ios::binary</code></td>
+<td>二进制方式操作</td>
+</tr>
+</tbody></table>
+<p>注意：可以通过<code>&quot;|&quot;</code>组合使用。</p>
+<hr>
+<h2 id="7、设计模式"><a href="#7、设计模式" class="headerlink" title="7、设计模式"></a>7、设计模式</h2><h3 id="7-1、单例模式"><a href="#7-1、单例模式" class="headerlink" title="7.1、单例模式"></a>7.1、单例模式</h3><h4 id="7-1-1、懒汉式（线程安全-自动回收）"><a href="#7-1-1、懒汉式（线程安全-自动回收）" class="headerlink" title="7.1.1、懒汉式（线程安全+自动回收）"></a>7.1.1、懒汉式（线程安全+自动回收）</h4><ul>
+<li>将实例声明为<code>静态的私有成员</code>，保证在程序运行中不会因为作用域自动回收</li>
+<li>默认构造函数声明为<code>私有</code>，禁用<code>拷贝构造</code>和移动构造，保证不会有其他创建对象的路径</li>
+<li>声明一个<code>内部私有类</code>Garbo，在其析构函数中回收单例内部分配的空间。</li>
+<li>在公有的<code>静态</code>成员函数<code>getInstance</code>中，创建对象和回收类的<code>静态对象</code>，以在程序结束时，通过静态对象的释放，自动回收单例中的空间。</li>
+</ul>
+<pre><code class="c++">class SingletonLazy&#123;
+private:
+    static T* instance;
+    static pthread_mutex_t mutex;
+    // 自动回收单例
+    class Garbo&#123;
+    public:
+        ~Garbo()&#123;
+            cout &lt;&lt; &quot;Garbo Start&quot; &lt;&lt; endl;
+            if(instance != nullptr)&#123;
+                delete instance;
+                instance = nullptr;
+            &#125;
+            cout &lt;&lt; &quot;Garbo End&quot; &lt;&lt; endl;
+        &#125;
+    &#125;;
+
+protected:
+    SingletonLazy() &#123; cout &lt;&lt; &quot;create SingletonLazy&quot; &lt;&lt; endl; &#125;;
+    // 析构为protected， 防止通过此基类操作子类时无法释放子类内存而导致内存泄露， 如果为private则子类无法调用父类析构导致出错
+    ~SingletonLazy() &#123;cout &lt;&lt; &quot;delete SingletonLazy&quot; &lt;&lt; endl; &#125;;
+
+public:
+    static T* getInstance();
+    // 禁用move构造
+    SingletonLazy(T&amp;&amp;) = delete;
+    // 禁用copy构造
+    SingletonLazy(const T&amp;) = delete;
+&#125;;
+
+template &lt;typename T, bool isThreadSafe&gt;
+T* SingletonLazy&lt;T, isThreadSafe&gt;::instance = nullptr;
+
+template &lt;typename T, bool isThreadSafe&gt;
+pthread_mutex_t SingletonLazy&lt;T, isThreadSafe&gt;::mutex = PTHREAD_MUTEX_INITIALIZER;
+
+template &lt;typename T, bool isThreadSafe&gt;
+T *SingletonLazy&lt;T, isThreadSafe&gt;::getInstance() &#123;
+    if(isThreadSafe)&#123;
+        if (instance == nullptr) &#123;
+            pthread_mutex_lock(&amp;mutex);
+            static Garbo garbo; // 初始化垃圾回收
+            if (instance == nullptr) &#123;
+                instance = new T();
+            &#125;
+            pthread_mutex_unlock(&amp;mutex);
+        &#125;
+    &#125;else&#123;
+        if (instance == nullptr) &#123;
+            instance = new T();
+        &#125;
+    &#125;
+    return instance;
+&#125;
+&#125;
+</code></pre>
+<p>使用方法：</p>
+<pre><code class="c++">class A: public SingletonLazy&lt;A&gt;&#123;
+    //声明模板为友元，方便调用构造函数A()
+    friend class SingletonLazy&lt;A&gt;;
+private:
+    A()&#123; printf(&quot;create A.\n&quot;); &#125;
+public:
+    ~A()&#123; printf(&quot;delete A.\n&quot;); &#125;
+    A(const A&amp;) = delete;
+    A(const A&amp;&amp;) = delete;
+&#125;;
+</code></pre>
+<p>7.1.2、饿汉式</p>
+<h2 id="8、模板"><a href="#8、模板" class="headerlink" title="8、模板"></a>8、模板</h2><p>模板不可以直接使用。模板只有在真正调用时，编译器才会将其转换成对应类型的代码然后编译。</p>
+<ul>
+<li>函数模板</li>
+<li>类模板</li>
+</ul>
+<h3 id="8-1、函数模板"><a href="#8-1、函数模板" class="headerlink" title="8.1、函数模板"></a>8.1、函数模板</h3><p>8.1.1、语法</p>
+<ul>
+<li><code>typename</code>可以用<code>class</code>代替</li>
+</ul>
+<pre><code class="c++">template &lt;typename T&gt;
+T func()&#123;&#125;
+</code></pre>
+<p>使用方式：自动推导类型、显示指定类型。</p>
+<pre><code class="c++">func(a,b);
+func&lt;int&gt;(a,b);
+</code></pre>
+<p>8.1.2、注意</p>
+<ul>
+<li>自动推导时，必须推导处一致的数据类型T才可以使用</li>
+<li>模板必须确定出T的数据类型才可以使用</li>
+</ul>
+<p>8.1.3、与普通函数的区别</p>
+<ul>
+<li>自动推导时不能隐式类型转换</li>
+<li>显示指定时可以隐式类型转换</li>
+</ul>
+<p>8.1.4、调用规则</p>
+<p>普通函数与函数模板同名时</p>
+<ul>
+<li><p>如果两者都可以实现，优先调用普通函数，如果普通函数只有声明则会报错。</p>
+</li>
+<li><p>通过空模板参数列表强制调用函数模板</p>
+</li>
+<li><p>函数模板也可以重载</p>
+</li>
+<li><p>如果函数模板可以产生更好的匹配则调用函数模板</p>
+<pre><code class="c++">void func(int a)&#123;&#125;
+template &lt;typename T&gt;
+void func(T a)&#123;&#125;
+char c = &#39;a&#39;;
+func(c);//调用函数模板
+</code></pre>
+</li>
+</ul>
+<p>8.1.5、局限性</p>
+<p>有些特定的数据类型需要用具体的方式特殊实现。</p>
+<pre><code class="c++">template&lt;typename T&gt;
+void func(T &amp;t)&#123;&#125;;
+//对具体的A的实现
+template&lt;&gt; void func(A &amp;a)&#123;&#125;;
+</code></pre>
+<h3 id="8-2、类模板"><a href="#8-2、类模板" class="headerlink" title="8.2、类模板"></a>8.2、类模板</h3><p>可以实例化对象</p>
+<h4 id="8-2-1、与函数模板区别"><a href="#8-2-1、与函数模板区别" class="headerlink" title="8.2.1、与函数模板区别"></a>8.2.1、与函数模板区别</h4><ul>
+<li><p>类模板没有自动类型推导</p>
+</li>
+<li><p>类模板的模板参数列表中可以有默认参数</p>
+<pre><code class="c++">template &lt;class T, class T2 = int&gt;
+class A&#123;
+public:
+    A(T &amp;a, T2 &amp;b)&#123;&#125;;
+&#125;;
+A&lt;string&gt;(s, 10);//第二个模板参数取默认值int
+</code></pre>
+</li>
+</ul>
+<h4 id="8-2-2、成员函数创建时机"><a href="#8-2-2、成员函数创建时机" class="headerlink" title="8.2.2、成员函数创建时机"></a>8.2.2、成员函数创建时机</h4><ul>
+<li><p>普通类成员函数一开始就可以创建</p>
+</li>
+<li><p>类模板的成员函数在调用时才创建</p>
+</li>
+</ul>
+<h4 id="8-2-3、类模板对象做函数参数"><a href="#8-2-3、类模板对象做函数参数" class="headerlink" title="8.2.3、类模板对象做函数参数"></a>8.2.3、类模板对象做函数参数</h4><p>传入方式</p>
+<ul>
+<li><p>指定传入的类型(最常用)</p>
+<pre><code class="c++">template &lt;class T1, class T2&gt;
+class A&#123;&#125;;
+void func(A&lt;string, int&gt; &amp;a)&#123;&#125;;
+</code></pre>
+</li>
+<li><p>参数模板化</p>
+<pre><code class="c++">template &lt;class T1, class T2&gt;
+void func(A&lt;T1, T2&gt; &amp;a)&#123;&#125;;
+</code></pre>
+</li>
+<li><p>整个类模板化</p>
+<pre><code class="c++">template &lt;class T&gt;
+void func(T &amp;a)&#123;&#125;;
+</code></pre>
+</li>
+</ul>
+<h4 id="8-2-4、类模板与继承"><a href="#8-2-4、类模板与继承" class="headerlink" title="8.2.4、类模板与继承"></a>8.2.4、类模板与继承</h4><ul>
+<li>子类继承类模板时，要在声明时指定父类中T的类型</li>
+<li>如果不指定，编译器无法给子类分配内存</li>
+</ul>
+<h2 id="9、c-11"><a href="#9、c-11" class="headerlink" title="9、c++11"></a>9、c++11</h2><h3 id="9-1、原始字面量"><a href="#9-1、原始字面量" class="headerlink" title="9.1、原始字面量"></a>9.1、原始字面量</h3><p>语法：<code>R&quot;xxx(原始字符串)xxx&quot;</code>，前后的xxx如果有则必须相同。</p>
+<p>如字符串<code>“H\t”</code>拥有两种解释：三个字符：<code>H、\、t</code>或两个字符<code>H、\t</code>。</p>
+<p>在c++11之前均采用第二种，c++11中可以通过定义原始字符串字面量输出第一种。</p>
+<pre><code class="c++"> // 不使用原始字面量要使用转义字符 \ 
+string str = &quot;D:\\hello\\world\\test.txt&quot;;
+// 字符串过长要使用 \ 
+string str1 = &quot;toolong1 \
+    toolong2&quot;;
+</code></pre>
+<p>c++11后：</p>
+<pre><code class="c++">string str = R&quot;(D:\hello\world\test.txt)&quot;;
+string str1 = R&quot;(toolong1
+    toolong2)&quot;;
+</code></pre>
+<h3 id="9-2、nullptr"><a href="#9-2、nullptr" class="headerlink" title="9.2、nullptr"></a>9.2、nullptr</h3><p><code>NULL</code>在C中定义为<code>(void*)0</code>，在C++中定义为<code>0</code>，因为c++不允许<code>void*</code>隐式转换为其他类型指针。</p>
+<p>因此<code>NULL</code>和<code>0</code>在编译器看来是无法区分的，这在函数重载中会引起麻烦：</p>
+<pre><code class="c++">void func(char *p)&#123;&#125;;
+void func(int p)&#123;&#125;;
+char *p = NULL;
+func(p); // 会调用func(int p)，导致意料之外的错误
+</code></pre>
+<p>c++11后：<code>nullptr</code>可以进行自动转换。</p>
+<h3 id="9-3、constexpr"><a href="#9-3、constexpr" class="headerlink" title="9.3、constexpr"></a>9.3、constexpr</h3><p><code>const</code>两种语义：变量只读、修饰常量。</p>
+<pre><code class="c++">const int a = 10; //常量
+int arr[a]; // 可行
+void func(const int p)&#123;//变量只读
+    int arr[p]; //出错
+&#125; 
+</code></pre>
+<p><code>constexpr</code>修饰常量表达式，告知编译器，表示编译阶段即可得到其结果，可以进行替换以提高程序效率。</p>
+<ul>
+<li><p>修饰<code>自定义类型</code></p>
+<pre><code class="c++">constexpr struct T&#123; int a; &#125;; //定义时不可用
+constexpr T t&#123;10&#125;; //可行
+</code></pre>
+</li>
+<li><p>修饰函数返回值</p>
+<pre><code class="c++">constexpr int func()&#123;&#125; // 函数体内不能包含if、for等控制结构
+</code></pre>
+</li>
+<li><p>修饰<code>函数模板</code>返回值时，最后会根据返回值确定是否为常量表达式。</p>
+</li>
+<li><p>修饰<code>构造函数</code>时，函数体必须为空，要在初始化列表进行初始化。</p>
+</li>
+</ul>
+<h3 id="9-4、类型推导"><a href="#9-4、类型推导" class="headerlink" title="9.4、类型推导"></a>9.4、类型推导</h3><h4 id="9-4-1、auto"><a href="#9-4-1、auto" class="headerlink" title="9.4.1、auto"></a>9.4.1、auto</h4><p>使用auto必须要对变量初始化。</p>
+<p>如果变量不是<code>指针</code>或<code>引用</code>，则其<code>const</code>和<code>volatile</code>关键字不会保留。</p>
+<pre><code class="c++">int a = 1;
+const auto b = a; // auto = int
+auto c = b; // auto = int, != const int
+
+const auto&amp; d = a; // auto = int, d = const int&amp;
+auto&amp; e = d; // auto = const int
+auto e2 = d; // auto = int
+</code></pre>
+<pre><code class="c++">const auto* d = &amp;a; // d: const int*
+const auto d2 = &amp;a; // d2: int* const 
+</code></pre>
+<p>限制</p>
+<ul>
+<li><p>不能作为形参</p>
+</li>
+<li><p>不能用于类非静态成员初始化。因为非静态成员只有在对象创建时才能推导。</p>
+</li>
+<li><p>不能使用auto定义数组</p>
+<pre><code class="c++">ina arr[] = &#123;1,2&#125;;
+auto p = arr; // 可以
+auto p2[] = &#123;1,2&#125;; // 不可以
+</code></pre>
+</li>
+<li><p>不能作为模板参数</p>
+</li>
+</ul>
+<h4 id="9-4-2、decltype"><a href="#9-4-2、decltype" class="headerlink" title="9.4.2、decltype"></a>9.4.2、decltype</h4><p>推导时不用初始化，直接通过表达式推导。</p>
+<pre><code class="c++">int a = 1;
+decltype(a) b = 99; // b:int
+const int&amp; y = a;
+decltype(y) b2 = a; // b2:const int&amp;
+</code></pre>
+<p>推导函数返回类型</p>
+<pre><code class="c++">const int func()&#123;&#125;
+decltype(func()) a = 0; // a: int，返回值是纯右值，省略const
+
+const int&amp; func()&#123;&#125;
+decltype(func()) a = 0; // a: const int&amp;
+
+const int&amp;&amp; func()&#123;&#125;
+decltype(func()) a = 0; // a: const int&amp;&amp;
+
+const T func()&#123;&#125;
+decltype(func()) a = 0; // a: const T
+</code></pre>
+<p>推导表达式左值，或用<code>（）</code>包围，得到引用</p>
+<pre><code class="c++">const T obj;
+decltype(obj.num) a = 0; // a:int
+decltype((obj.num)) b = a; // b:const int&amp;
+
+int m = 0, n = 0;
+decltype(n+m) c = 0; // c:int
+decltype(n = n+m) d = 0; // d:int&amp;
+</code></pre>
+<h4 id="9-4-3、返回值类型后置"><a href="#9-4-3、返回值类型后置" class="headerlink" title="9.4.3、返回值类型后置"></a>9.4.3、返回值类型后置</h4><p>用函数模板时，如果返回值类型也是未定的</p>
+<pre><code class="c++">template &lt;class R, class T, class U&gt;
+R func(T t, U u)&#123; return t + u; &#125;
+// 调用时，返回值类型需要提前知道函数怎么转换，不符合使用逻辑
+auto res = func&lt;decltype(t+u), 1, 3.0); // res: double
+
+//错误写法，t,u定义在后面，所以无法推导
+template &lt;class T, class U&gt;
+decltype(t+u) func(T t, U u)&#123; return t + u; &#125;
+</code></pre>
+<p>使用返回类型后置</p>
+<pre><code class="c++">template &lt;class T, class U&gt;
+auto func(T t, U u) -&gt; decltype(t+u)&#123; return t + u; &#125;
+auto res = func(1, 3.0); // res: double
+</code></pre>
+<h3 id="9-5、final与override"><a href="#9-5、final与override" class="headerlink" title="9.5、final与override"></a>9.5、final与override</h3><h4 id="9-5-1、final"><a href="#9-5-1、final" class="headerlink" title="9.5.1、final"></a>9.5.1、final</h4><p>限制某个类不能被<code>继承</code>，或虚函数不能<code>重写</code>。</p>
+<pre><code class="c++">class A&#123;
+public: virtual void func()&#123;&#125;;
+&#125;;
+class B: public A&#123;
+public: void func() final &#123;&#125;; //重写并禁止此类的子类重写
+&#125;;
+class C: public B&#123;
+public: void func(); //出错！！
+&#125;;
+</code></pre>
+<pre><code class="c++">class B final: public A&#123;&#125;;//禁止B被继承，丁克
+</code></pre>
+<h4 id="9-5-2、override"><a href="#9-5-2、override" class="headerlink" title="9.5.2、override"></a>9.5.2、override</h4><p>提高重写虚函数时的可读性。</p>
+<pre><code class="c++">class A&#123;
+public: virtual void func()&#123;&#125;;
+&#125;;
+class B: public A&#123;
+public: void func() override &#123;&#125;; //重写
+&#125;;
+</code></pre>
+<h3 id="9-6、模板的优化"><a href="#9-6、模板的优化" class="headerlink" title="9.6、模板的优化"></a>9.6、模板的优化</h3><h4 id="9-6-1、连续-gt-的优化"><a href="#9-6-1、连续-gt-的优化" class="headerlink" title="9.6.1、连续&gt;的优化"></a>9.6.1、连续<code>&gt;</code>的优化</h4><p>c++11前两个<code>&gt;&gt;</code>会被认为是右移操作符，必须在中间加空格<code>&gt; &gt;</code>。</p>
+<h4 id="9-6-2、函数模板参数的默认值"><a href="#9-6-2、函数模板参数的默认值" class="headerlink" title="9.6.2、函数模板参数的默认值"></a>9.6.2、函数模板参数的默认值</h4><p>c++11前类模板参数可以有默认值，而函数模板不能。</p>
+<h3 id="9-7、新构造函数"><a href="#9-7、新构造函数" class="headerlink" title="9.7、新构造函数"></a>9.7、新构造函数</h3><h4 id="9-7-1、委托构造函数"><a href="#9-7-1、委托构造函数" class="headerlink" title="9.7.1、委托构造函数"></a>9.7.1、委托构造函数</h4><p>类中不同构造函数有冗余代码时，通过委托构造调用<code>同一个类</code>中其他构造函数</p>
+<pre><code class="c++">class A&#123;
+public:
+    A()&#123;&#125;
+    A(int a):A()&#123;&#125; // 调用了A()
+&#125;;
+</code></pre>
+<h4 id="9-7-2、继承构造函数"><a href="#9-7-2、继承构造函数" class="headerlink" title="9.7.2、继承构造函数"></a>9.7.2、继承构造函数</h4><p>子类中直接使用父类构造函数，即using的使用。</p>
+<p>c++11前：</p>
+<pre><code class="c++">class A&#123;
+public: 
+    int a;
+    A()&#123;&#125;
+    A(int a)&#123;&#125;
+&#125;;
+class B: public A&#123;
+public: 
+    B():A()&#123;&#125; // 仅仅调用父类构造，写起来还麻烦
+    B(int a):A(a)&#123;&#125;
+&#125;;
+</code></pre>
+<p>c++11：</p>
+<pre><code class="c++">class B: public A&#123;
+public: 
+    using A::A; // 直接使用父类所有构造
+&#125;;
+</code></pre>
+<h3 id="9-8、列表初始化"><a href="#9-8、列表初始化" class="headerlink" title="9.8、列表初始化"></a>9.8、列表初始化</h3><p>c++11前仅有数组和结构体支持列表初始化。</p>
+<p>c++11其他类型也可以列表初始化</p>
+<pre><code class="c++">class A&#123;
+    public: A(int a)&#123;&#125;
+&#125;;
+//初始化列表初始化
+A a&#123;1&#125;;
+A a1 = &#123;1&#125;;
+int i = &#123;1&#125;;
+int i&#123;1&#125;;
+</code></pre>
+<p>模板类<code>std::initializer_list</code></p>
+<ul>
+<li><p>函数：<code>begin()、end()、size()</code></p>
+</li>
+<li><p>作用：接受任意个相同类型参数</p>
+<pre><code class="c++">void func(initializer_list&lt;int&gt; ls);
+func(&#123;1,2,3&#125;);
+</code></pre>
+</li>
+</ul>
+<h3 id="9-9、基于范围的for循环"><a href="#9-9、基于范围的for循环" class="headerlink" title="9.9、基于范围的for循环"></a>9.9、基于范围的for循环</h3><pre><code class="c++">for(declaration : expression)&#123;&#125;
+</code></pre>
+<p>使用细节</p>
+<ul>
+<li><p>如果要修改，需要使用&amp;，否则只会修改拷贝值</p>
+<pre><code class="c++">for(auto &amp;v : container)&#123; v++; &#125;
+</code></pre>
+</li>
+<li><p>只读遍历</p>
+<pre><code class="c++">for(const auto&amp; v : container)&#123;&#125;
+</code></pre>
+</li>
+<li><p>set容器默认只读，通过&amp;无法修改。</p>
+</li>
+<li><p>范围for循环在第一次进入时确定边界，之后不再判定，因此如果循环时增删元素会出错。</p>
+</li>
+</ul>
+<h3 id="9-10、lambda表达式"><a href="#9-10、lambda表达式" class="headerlink" title="9.10、lambda表达式"></a>9.10、lambda表达式</h3><p>语法</p>
+<pre><code class="c++">[capture](params) opt -&gt; ret &#123;body;&#125;;
+</code></pre>
+<ul>
+<li><p><code>capture</code>：捕获列表，捕获一定范围内变量</p>
+<ul>
+<li><p>[]：不捕捉外部变量</p>
+<pre><code class="c++">int a;
+[]()&#123; int c = a; // 报错，无法使用外部变量
+&#125;;
+</code></pre>
+</li>
+<li><p><code>[&amp;]</code>：按引用的方式使用所有外部变量，可以修改原变量</p>
+</li>
+<li><p><code>[=]</code>：按值拷贝的方式，且传递的值只读</p>
+<pre><code class="c++">int a;
+[=]()&#123; a++; // 报错，无法修改
+&#125;;
+</code></pre>
+</li>
+<li><p><code>[=, &amp;foo]</code>：foo变量按引用方式，其他外部变量使用拷贝方式。</p>
+</li>
+<li><p><code>[foo]</code>或<code>[&amp;foo]</code>：只捕捉<code>foo</code>变量</p>
+</li>
+<li><p><code>[this]</code>：捕获当前类的<code>this</code>指针</p>
+</li>
+</ul>
+</li>
+<li><p>opt：选项，可以省略</p>
+<ul>
+<li><p>mutable：可以修改值传递进来的拷贝，但还是不能修改本身</p>
+<pre><code class="c++">int a = 0;
+[=]()mutable&#123; a++; // a = 1
+&#125;();//加()调用该函数
+// a = 0
+</code></pre>
+</li>
+<li><p>exception：指定函数抛出的异常</p>
+</li>
+</ul>
+</li>
+<li><p>ret：返回值，省略时<code>-&gt;</code>也要省略</p>
+</li>
+</ul>
+<p>自动推导返回值</p>
+<pre><code class="c++">auto f = [](int i)&#123;return i;&#125;
+</code></pre>
+<h3 id="9-11、右值引用"><a href="#9-11、右值引用" class="headerlink" title="9.11、右值引用"></a>9.11、右值引用</h3><h4 id="9-11-1、左值与右值"><a href="#9-11-1、左值与右值" class="headerlink" title="9.11.1、左值与右值"></a>9.11.1、左值与右值</h4><ul>
+<li>左值：locate value，可以定位，存储在内存，可<code>取地址</code></li>
+<li>右值：read value，只能读取，<code>不能取地址</code></li>
+</ul>
+<h4 id="9-11-2、左值引用与右值引用"><a href="#9-11-2、左值引用与右值引用" class="headerlink" title="9.11.2、左值引用与右值引用"></a>9.11.2、左值引用与右值引用</h4><ul>
+<li><p>左值引用</p>
+<pre><code class="c++">int num = 0;
+int&amp; a = num;
+const int&amp; c = num; //常量左值引用
+</code></pre>
+</li>
+<li><p>右值引用</p>
+<p>只能通过右值初始化</p>
+<pre><code class="c++">int&amp;&amp; a = 1;
+const int&amp;&amp; b = 1;
+const int&amp;&amp; b1 = a; //报错
+auto&amp;&amp; b2 = num; // b2: int&amp; 而不是int&amp;&amp;
+auto&amp;&amp; b3 = 1; // b3: int&amp;&amp;
+</code></pre>
+<p>作用：延长临时对象的生命周期，避免拷贝导致效率低下。</p>
+<p>移动构造函数</p>
+<pre><code class="c++">T(T&amp;&amp; t):p(t.p)&#123;
+    t.p = nullptr; //避免p指向的内存被释放
+&#125;
+</code></pre>
+<p>调用时机：用临时对象赋值时，如果有移动构造函数则调用。如果没有则要求右侧是临时对象，左侧显示使用右值定义。</p>
+<pre><code class="c++">void func()&#123;return T(); &#125; //返回不能取地址的右值，T没有移动构造
+T&amp;&amp; t = func(); // 显示定义+右值，此时复用了整个临时对象，不止p
+</code></pre>
+</li>
+</ul>
+<h4 id="9-11-3、move"><a href="#9-11-3、move" class="headerlink" title="9.11.3、move"></a>9.11.3、move</h4><ul>
+<li><p>将左值转为右值</p>
+</li>
+<li><p>将资源进行转移。减少拷贝次数。</p>
+</li>
+<li><p>将类的右值引用作为另一个类的构造参数时，如果用初始化列表赋值则需要使用move，否则会调用拷贝构造。</p>
+<pre><code class="c++">class B&#123;
+    B(A&amp;&amp; a):(m_a(a))&#123;&#125; // copy
+    B(A&amp;&amp; a):(m_a(std::move(a))&#123;&#125; // move
+&#125;
+</code></pre>
+</li>
+<li><p>使用&#x3D;和右值赋值，需要重载&#x3D;</p>
+<pre><code class="c++">class A&#123;
+public:
+    A&amp; operator=(A&amp;&amp; a) &#123;
+         if(this == &amp;a) return *this; // 如果是给自己赋值直接返回
+        delete[] m; // 先删除已有的内存，防止泄露
+         m = a.m;
+         a.m = nullptr;
+        return *this;
+    &#125;;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h4 id="9-11-4、forward（完美转发）"><a href="#9-11-4、forward（完美转发）" class="headerlink" title="9.11.4、forward（完美转发）"></a>9.11.4、forward（完美转发）</h4><p>一个右值引用作为函数参数传入时，在函数内就变成了左值，并不是原本的类型了。此时如果要按照原本的类型转发到另一个函数，则可使用<code>forward</code>。</p>
+<pre><code class="c++">std::forward&lt;T&gt;(t);
+</code></pre>
+<p>如果T是左值引用，则t会转换成右值，否则转换的结果都是左值。？</p>
+<p>用法实例：vector的emplace实现</p>
+<pre><code class="c++">template&lt;typename... Args&gt;
+void emplace_back(Args&amp;&amp;... args)&#123;
+    m_Data[size] = T(std::forward&lt;Args&gt;(args)...); // 会调用拷贝或移动构造
+    new(&amp;m_Data[size]) T(std::forward&lt;Args&gt;(args)...); //不会调用拷贝或移动构造
+&#125;
+</code></pre>
+<h4 id="9-11-5、emplace"><a href="#9-11-5、emplace" class="headerlink" title="9.11.5、emplace"></a>9.11.5、emplace</h4><p>emplace与push的区别：</p>
+<ul>
+<li><p>push会先构造临时对象，然后将临时对象拷贝到vector中；而emplace如果将构造函数的参数直接传入，则会直接调用对应构造函数在vector中构造对象，省去了拷贝。</p>
+</li>
+<li><p>emplace和push都借助完美转发，根据传入的参数是左值还是右值，决定使用拷贝构造还是移动构造。</p>
+<pre><code class="c++">class A&#123;
+public: A()&#123;&#125;
+    A(const A&amp; a)&#123;  cout&lt;&lt;&quot;copy&quot;&lt;&lt;endl; &#125;
+    A(A&amp;&amp; a)&#123; cout&lt;&lt;&quot;move&quot;&lt;&lt;endl; &#125;
+&#125;;
+
+vector&lt;A&gt; vec;
+vec.reserve(10); // 保留空间，避免拷贝
+A a;
+vec.emplace_back(); // 直接调用构造函数
+vec.emplace_back(a); // 传入左值，调用copy
+vec.emplace_back(A()); // 传入右值，调用move
+
+vec.push_back(); // 出错
+vec.push_back(a); // 传入左值，调用copy
+vec.push_back(A()); // 传入右值，调用move
+</code></pre>
+</li>
+</ul>
+<h3 id="9-12、可调用对象"><a href="#9-12、可调用对象" class="headerlink" title="9.12、可调用对象"></a>9.12、可调用对象</h3><h4 id="9-12-1、定义"><a href="#9-12-1、定义" class="headerlink" title="9.12.1、定义"></a>9.12.1、定义</h4><ul>
+<li><p>一个函数指针</p>
+<pre><code class="c++">int func(int a)&#123;&#125;;
+int (*funcPtr)(int) = &amp;finc;
+</code></pre>
+</li>
+<li><p>一个重载<code>operator()</code>的类的对象（仿函数）</p>
+<pre><code class="c++">struct A&#123; void operator()(int a)&#123;&#125;; &#125;a;
+a(1);
+</code></pre>
+</li>
+<li><p>一个可以被转换成函数指针的类对象</p>
+<pre><code class="c++">using funcPtr = void(*)(string);
+struct A&#123;
+    static void func(string s)&#123; cout &lt;&lt; s &lt;&lt; endl; &#125;
+    operator funcPtr()&#123; return func; &#125; // 只能是static,因为非static函数还有一个隐含的this指针参数会导致类型不匹配
+&#125;a;
+a(&quot;ss&quot;);
+</code></pre>
+</li>
+<li><p>一个类成员的指针</p>
+<pre><code class="c++">struct A&#123;
+    void func(int a)&#123;&#125;;
+    int m;
+&#125;a, a2;
+void (*funcPtr)(int) = A::func;//出错，因为func有隐含参数this
+void (A::*funcPtr)(int) = &amp;A::func; //类成员函数指针,不能省略域解析符A::，因为A::func是指向类成员的指针，而指向类成员（非static）的指针并非指针，
+void (A::*funcPtr)(int) = A::func; //等价
+int A::*m = &amp;A::m; //类成员变量指针
+(a.*funcPtr)(1); //调用成员函数
+a.*m = 100; //初始化对象的成员变量
+a2.*m = 50; //初始化对象的成员变量
+cout &lt;&lt; a.m &lt;&lt;&quot;,&quot;&lt;&lt; a2.m &lt;&lt; endl; //100,50
+</code></pre>
+</li>
+</ul>
+<h4 id="9-12-2、包装器"><a href="#9-12-2、包装器" class="headerlink" title="9.12.2、包装器"></a>9.12.2、包装器</h4><p>类的成员函数指针不能直接用包装器包装，还需要绑定器。</p>
+<pre><code class="c++">#include &lt;functional&gt;
+std::function&lt;返回类型(参数类型列表)&gt; diy_name = 可调用对象;
+</code></pre>
+<ul>
+<li><p>包装普通函数</p>
+<pre><code class="c++">function&lt;void(int)&gt; funPtr = func;
+</code></pre>
+</li>
+<li><p>包装类的静态函数</p>
+<pre><code class="c++">function&lt;void(int)&gt; funPtr = A::func;
+</code></pre>
+</li>
+<li><p>包装转换成函数指针的对象或仿函数</p>
+<pre><code class="c++">A a;
+function&lt;void(int)&gt; funPtr = a;
+</code></pre>
+</li>
+</ul>
+<p>作用：通过将包装器类型作为函数参数，可以方便的将函数名作为函数参数传递。</p>
+<pre><code class="c++">void print(int a)&#123;&#125;;
+void callback(const function&lt;void(int)&gt;&amp;func)&#123; func(1); &#125;
+callback(print);
+</code></pre>
+<h4 id="9-12-3、绑定器"><a href="#9-12-3、绑定器" class="headerlink" title="9.12.3、绑定器"></a>9.12.3、绑定器</h4><p>作用</p>
+<ul>
+<li>将可调用对象 和对应参数绑定在一起成为仿函数</li>
+<li>减少参数：将多参数可调用对象转为更少参数的可调用对象</li>
+</ul>
+<pre><code class="c++">//非类成员
+auto f = std::bind(可调用对象地址，绑定的参数/占位符);
+//类成员
+auto f = std::bind(类成员地址，类对象地址，绑定的参数/占位符);
+</code></pre>
+<p>占位符：<code>placeholders::_1</code>：这个位置将在函数调用时被传入的第一个参数替代</p>
+<pre><code class="c++">void func(int x, int y)&#123;&#125;
+bind(func, 1, 2)();//固定参数为1、2，绑定后调用即func(1,2);
+bind(func, placeholders::_1, 2)(10); //func(10, 2);
+bind(func, 2, placeholders::_1)(10); //func(2, 10);
+
+bind(func, 2, placeholders::_2)(10); //出错，调用时没有第二个参数
+bind(func, 2, placeholders::_2)(10,20);//func(2, 20);
+//func(10,20)
+bind(func, placeholders::_1, placeholders::_2)(10,20);
+</code></pre>
+<pre><code class="c++">//绑定类成员
+class A&#123;
+public: void func(int x, int y)&#123;&#125;
+    int m;
+&#125;;
+A a;
+auto f1 = bind(&amp;A::func, &amp;a, 5, placeholders::_1);
+function&lt;void(int, int)&gt; f11 = f1; //隐式转换成包装器类型
+f1(10); // a.func(5, 10);
+f11(20,20); // a.func(5, 20);
+auto f2 = bind(&amp;A::m, &amp;a);
+function&lt;int&amp;(void)&gt; f22 = f2; //&amp;保证可修改变量中的值
+f2() = 666; //a.m = 666
+f22() = 777;//a.m = 777
+</code></pre>
+<hr>
+<h2 id="10、网络编程"><a href="#10、网络编程" class="headerlink" title="10、网络编程"></a>10、网络编程</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/2123.html">socket是什么？套接字是什么？ (biancheng.net)</a></p>
+<h3 id="10-1、基本概念"><a href="#10-1、基本概念" class="headerlink" title="10.1、基本概念"></a>10.1、基本概念</h3><p>socket提供两种通信机制：</p>
+<ul>
+<li><code>stream</code>：流式传输，基于<code>TCP</code>，有序、可靠、双向字节流。</li>
+<li><code>datagram</code>：数据报传输，基于<code>UDP</code>，不可靠，可能丢失和乱序。对数据长度有限制，效率高。<code>音视频聊天</code>可以采用。应用场景越来越少。</li>
+</ul>
+<p>socket通信流程：</p>
+<img src="/2022/06/06/CPP/socket客户端服务器通讯.jpg" alt="socket客户端服务器通讯" style="zoom:50%;">
+
+<h3 id="10-2、socket"><a href="#10-2、socket" class="headerlink" title="10.2、socket()"></a>10.2、socket()</h3><pre><code class="c++">int socket(int af, int type, int protocol);//Linux
+SOCKET socket(int af, int type, int protocol);//Windows
+</code></pre>
+<ul>
+<li><code>af</code>：协议族（Address Family），即IP<em>地址类型</em>。也可以写作PF（Protocol Family），因此所有<code>AF_XX</code>等价于<code>PF_XX</code>。<ul>
+<li><code>AF_INET</code>：IPv4地址，如127.0.0.1。</li>
+<li><code>AF_INET6</code>：IPv6地址，如1030::C9B4:FF12:48AA:1A2B。</li>
+</ul>
+</li>
+<li><code>type</code>：<em>数据传输方式</em>，即socket类型。<ul>
+<li><code>SOCK_STREAM</code>：流式，基于TCP</li>
+<li><code>SOCK_DGRAM</code>：数据报，基于UDP</li>
+</ul>
+</li>
+<li><code>protocol</code>：<em>传输协议</em>。<ul>
+<li>0：根据<code>af</code>和<code>type</code>自动推导。当两种不同协议支持同一种<code>af</code>和<code>type</code>时，无法自动推导。</li>
+<li><code>IPPROTO_TCP</code>：TCP传输协议</li>
+<li><code>IPPROTO_UDP</code>：UDP传输协议</li>
+</ul>
+</li>
+</ul>
+<pre><code class="c++">SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
+</code></pre>
+<h3 id="10-3、bind"><a href="#10-3、bind" class="headerlink" title="10.3、bind()"></a>10.3、bind()</h3><p>将具体的地址和端口绑定到<code>socket</code></p>
+<blockquote>
+<p>注意绑定前要转为<code>网络字节序</code>。</p>
+<ul>
+<li><code>htons()</code>：host to network short</li>
+<li><code>htonl()</code>：host to network long</li>
+<li><code>ntohl()</code>：network to host long</li>
+<li><code>ntohs()</code>：network to host short</li>
+</ul>
+</blockquote>
+<pre><code class="c++">int bind(int sock, struct sockaddr *addr, socklen_t addrlen);  //Linux
+int bind(SOCKET sock, const struct sockaddr *addr, int addrlen);  //Windows
+</code></pre>
+<ul>
+<li><p><code>sock</code>：由socket()产生的socket描述符。</p>
+</li>
+<li><p><code>addrlen</code>：<code>addr</code>的大小，由<code>sizeof</code>计算。</p>
+</li>
+<li><p>返回值：</p>
+</li>
+<li><p><code>addr</code>：<code>sockaddr</code>结构体指针，将<code>sockaddr_in</code>转换得到</p>
+<blockquote>
+<pre><code class="c++">struct sockaddr_in&#123;
+    sa_family_t     sin_family;   //地址类型
+    uint16_t        sin_port;     //16位的端口号
+    struct in_addr  sin_addr;     //32位IP地址
+    char            sin_zero[8];  //不使用，一般用0填充
+&#125;;
+</code></pre>
+</blockquote>
+<ul>
+<li><p><code>sin_family</code>：和<code>socket()</code>的<code>af</code>取值一致。</p>
+</li>
+<li><p><code>sin_port</code>：端口号，取值范围为<code>1024~65536</code>，需要使用<code>htons()</code>进行转换。</p>
+</li>
+<li><p><code>sin_addr</code>：<code>in_addr</code>结构体。</p>
+<blockquote>
+<pre><code class="c++">struct in_addr&#123;
+    in_addr_t  s_addr;  //32位的IP地址，等价于unsigned long，是一个整数
+&#125;;
+//因为s_addr是一个整数，而IP地址一般是字符串，所以要使用inet_addr()进行转换
+unsigned long ip = inet_addr(&quot;127.0.0.1&quot;);
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p><strong>为什么要转换为<code>sockaddr</code>:</strong></p>
+<img src="/2022/06/06/CPP/image-20220325171617582.png" alt="image-20220325171617582" style="zoom: 50%;">
+
+<ul>
+<li>两者长度都是16B，只是<code>sockaddr</code>将地址和端口合并到一起。要给<code>sa_data</code>赋值必须同时指定，如<code>&quot;127.0.0.1:80&quot;</code>，但没有相关函数将字符串转成需要的形式，所以很难给<code>sockaddr</code>赋值，因此使用<code>sockaddr_in</code>代替。</li>
+<li><code>sockaddr</code>更通用，而<code>sockaddr_in</code>和<code>sockaddr_in6</code>分别保存IPv4和IPv6地址。</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<pre><code class="c++">sockaddr_in sockAddr;
+memset(&amp;sockAddr, 0, sizeof(sockaddr_in)); //内存初始化为0
+sockAddr.sin_family = AF_INET;
+sockAddr.sin_port = htons(PORT);
+sockAddr.sin_addr.S_un.S_addr = inet_addr(&quot;127.0.0.1&quot;);
+bind(servSock, (sockaddr*)&amp;servAddr, sizeof (servAddr));
+</code></pre>
+<h3 id="10-4、connect"><a href="#10-4、connect" class="headerlink" title="10.4、connect()"></a>10.4、connect()</h3><pre><code class="c++">int connect(int sock, struct sockaddr *serv_addr, socklen_t addrlen);  //Linux
+int connect(SOCKET sock, const struct sockaddr *serv_addr, int addrlen);  //Windows
+</code></pre>
+<p>用来建立连接，参数和<code>bind()</code>相同，但<code>connect()</code>用于客户端。</p>
+<h3 id="10-5、listen"><a href="#10-5、listen" class="headerlink" title="10.5、listen()"></a>10.5、listen()</h3><p>使socket进入被动监听。即没有客户端请求时，socket处于“睡眠”，当接收到请求时，才会“唤醒”。</p>
+<pre><code class="c++">int listen(int sock, int backlog);  //Linux
+int listen(SOCKET sock, int backlog);  //Windows
+</code></pre>
+<ul>
+<li><code>sock</code>：进入监听的socket</li>
+<li><code>backlog</code>：<code>请求队列</code>的最大长度，如果为<code>SOMAXCONN</code>表示由系统决定，一般比较大。</li>
+</ul>
+<p>请求队列</p>
+<ul>
+<li>socket正在处理客户端请求时，有新的请求进来，就将新请求放入缓冲区，即请求队列。</li>
+<li>当请求队列满时，不再接受新请求，Linux的客户端会收到<code>ECONNREFUSED</code>，Windows会收到<code>WSAECONNRESFUSED</code>。</li>
+</ul>
+<h3 id="10-6、accept"><a href="#10-6、accept" class="headerlink" title="10.6、accept()"></a>10.6、accept()</h3><p>listen()只是监听请求，accept()才真正接受并处理。accept会<code>阻塞</code>程序，直到有新的请求到来。</p>
+<pre><code class="c++">int accept(int sock, struct sockaddr *addr, socklen_t *addrlen);  //Linux
+SOCKET accept(SOCKET sock, struct sockaddr *addr, int *addrlen);  //Window
+</code></pre>
+<ul>
+<li><code>sock</code>：<code>服务器端</code>的socket</li>
+<li><code>addr</code>：保存<code>客户端</code>的IP地址和端口号</li>
+<li>返回值：一个新的socket，专门用来与该次请求的客户端通信</li>
+</ul>
+<h3 id="10-7、发送和接收数据"><a href="#10-7、发送和接收数据" class="headerlink" title="10.7、发送和接收数据"></a>10.7、发送和接收数据</h3><h4 id="10-7-1、Linux下："><a href="#10-7-1、Linux下：" class="headerlink" title="10.7.1、Linux下："></a>10.7.1、Linux下：</h4><p>万物皆可为文件，因此socket和普通文件一样，可以直接使用<code>write()/read()</code>发送和接受数据</p>
+<ul>
+<li><pre><code class="c++">ssize_t write(int fd, const void *buf, size_t nbytes);
+</code></pre>
+<ul>
+<li><code>fd</code>：要写入的文件描述符，即socket</li>
+<li><code>buf</code>：要写入的数据的地址</li>
+<li><code>nbytes</code>：要写入的字节数</li>
+<li>返回值：写入成功返回字节数，失败返回-1</li>
+</ul>
+</li>
+<li><pre><code class="c++">ssize_t read(int fd, void *buf, size_t nbytes);
+</code></pre>
+<ul>
+<li><code>fd</code>：要读取的文件描述符，即socket</li>
+<li><code>buf</code>：存放读取出来的数据的地址</li>
+<li><code>nbytes</code>：要读取的字节数</li>
+<li>返回值：读取成功返回字节数，如果读取到文件结尾返回0，失败返回-1</li>
+</ul>
+</li>
+</ul>
+<p>10.7.2、Windows</p>
+<p>需要用专门的<code>send()/recv()</code></p>
+<ul>
+<li><pre><code class="c++">int send(SOCKET sock, const char *buf, int len, int flags);
+</code></pre>
+<ul>
+<li>flags：发送数据时的选项。一般设置为0。</li>
+</ul>
+</li>
+<li><pre><code class="c++">int recv(SOCKET sock, char *buf, int len, int flags);
+</code></pre>
+</li>
+</ul>
+<h3 id="10-8、socket缓冲区和阻塞模式"><a href="#10-8、socket缓冲区和阻塞模式" class="headerlink" title="10.8、socket缓冲区和阻塞模式"></a>10.8、socket缓冲区和阻塞模式</h3><h4 id="10-8-1、缓冲区"><a href="#10-8-1、缓冲区" class="headerlink" title="10.8.1、缓冲区"></a>10.8.1、缓冲区</h4><p><strong>每个</strong>socket创建后都会有两个缓冲区，<code>输入缓冲区</code>和<code>输出缓冲区</code>。</p>
+<p>write和send并不立即向网络中传输数据，而是先将数据<code>写入输出缓冲区</code>，再通过TCP协议将数据从缓冲区发送到目标机器。一旦数据写入缓冲区，函数就返回，不管发送。</p>
+<p>read和recv同理。</p>
+<p>缓冲区特性：</p>
+<ul>
+<li>在每个TCP socket中单独存在</li>
+<li>创建socket时自动生成</li>
+<li>关闭socket后TCP<strong>仍会发送输出缓冲区的数据</strong></li>
+<li>关闭socket后输入缓冲区数据丢失</li>
+<li>大小一般为8KB，通过<code>getsockopt</code>获取</li>
+<li>发送方在接收到ACK后才会清空输出缓冲区</li>
+</ul>
+<h4 id="10-8-2、阻塞模式"><a href="#10-8-2、阻塞模式" class="headerlink" title="10.8.2、阻塞模式"></a>10.8.2、阻塞模式</h4><p>对于TCP socket，默认是阻塞的，也可以修改为非阻塞。</p>
+<p>使用write和send发送数据时：</p>
+<ul>
+<li>首先检查输出缓冲区，如果空间不够则阻塞，直到发送足够数据后空间足够才唤醒</li>
+<li>如果TCP正在发送数据，阻塞write和send，直到发送完毕。</li>
+<li>如果写入数据大于缓冲区，分批写入。</li>
+<li>直到所有数据写入缓冲区，write和send才返回。</li>
+</ul>
+<p>使用read和recv读取时：</p>
+<ul>
+<li>首先检查输入缓冲区，如果有数据则读取，否则阻塞直到有数据</li>
+<li>如果要读取的长度小于缓冲区中数据长度，则剩余数据会积压，直到再次读取。</li>
+<li>直到读取到数据后才会返回，否则一直阻塞。</li>
+</ul>
+<h3 id="10-9、TCP的粘包（数据无边界性）"><a href="#10-9、TCP的粘包（数据无边界性）" class="headerlink" title="10.9、TCP的粘包（数据无边界性）"></a>10.9、TCP的粘包（数据无边界性）</h3><p>因为read时缓冲区数据可能是多次write的结果，所以无法区分每一次write的数据边界。例如两次分别写入1和3，读取时会读出13。</p>
+<h2 id="11、STL"><a href="#11、STL" class="headerlink" title="11、STL"></a>11、STL</h2><h3 id="11-1、vector"><a href="#11-1、vector" class="headerlink" title="11.1、vector"></a>11.1、vector</h3><h4 id="11-1-1、vector中存对象还是存指针？（尽量选择存对象）"><a href="#11-1-1、vector中存对象还是存指针？（尽量选择存对象）" class="headerlink" title="11.1.1、vector中存对象还是存指针？（尽量选择存对象）"></a>11.1.1、vector中存对象还是存指针？（尽量选择存对象）</h4><ul>
+<li>如果存对象，由于内存连续，所以大概率在cache中的同一行，访问更快。但vector扩容时拷贝耗时更多。</li>
+<li>如果存指针，则离散访问，cache命中率极低。但vector扩容时更快。</li>
+</ul>
+<h4 id="11-1-2、vector的使用优化"><a href="#11-1-2、vector的使用优化" class="headerlink" title="11.1.2、vector的使用优化"></a>11.1.2、vector的使用优化</h4><ul>
+<li>使用<code>reserve</code>避免频繁扩容导致的拷贝操作。</li>
+<li>使用<code>emplace</code>代替<code>push</code>，直接在<code>vector</code>中构造对象，避免临时对象的创建和拷贝。</li>
+</ul>
+<h3 id="11-2、array"><a href="#11-2、array" class="headerlink" title="11.2、array"></a>11.2、array</h3><h4 id="11-2-1、与vector的区别"><a href="#11-2-1、与vector的区别" class="headerlink" title="11.2.1、与vector的区别"></a>11.2.1、与vector的区别</h4><ul>
+<li><p>array大小固定，也可以通过<code>size()</code>获取长度。</p>
+<pre><code class="c++">// 使用模板打印不同大小的array
+template &lt;typename T&gt;
+void PrintArray(const T&amp; array) &#123; cout &lt;&lt; array.size() &lt;&lt; endl; &#125;
+</code></pre>
+</li>
+<li><p><code>array</code>在栈上保存内容，<code>vector</code>则在堆上。</p>
+</li>
+</ul>
+<h4 id="11-2-2、与普通的数组的区别"><a href="#11-2-2、与普通的数组的区别" class="headerlink" title="11.2.2、与普通的数组的区别"></a>11.2.2、与普通的数组的区别</h4><p><code>array</code>可以打开边界检查，防止数组访问越界。</p>
+<h2 id="12、多线程"><a href="#12、多线程" class="headerlink" title="12、多线程"></a>12、多线程</h2><h3 id="12-1、std-thread"><a href="#12-1、std-thread" class="headerlink" title="12.1、std::thread"></a>12.1、<code>std::thread</code></h3><p>使用<code>std::thread</code>创建一个子线程，构造参数为线程执行的函数指针</p>
+<pre><code class="c++">std::thread worker(DoWork);
+</code></pre>
+<h3 id="12-2、join"><a href="#12-2、join" class="headerlink" title="12.2、join"></a>12.2、<code>join</code></h3><p>阻塞当前线程并等待指定线程完成</p>
+<pre><code class="c++">static bool s_Finished = false;
+void DoWork() &#123;
+    while (!s_Finished)  std::cout &lt;&lt; &quot;Working...\n&quot;;
+&#125;
+int main() &#123;
+    std::thread worker(DoWork);
+    std::cin.get();
+    s_Finished = true;
+    worker.join();
+&#125;
+</code></pre>
+<h3 id="12-3、当前线程与线程休眠"><a href="#12-3、当前线程与线程休眠" class="headerlink" title="12.3、当前线程与线程休眠"></a>12.3、当前线程与线程休眠</h3><p><code>std::this_thread</code>获取当前线程</p>
+<pre><code class="c++">void DoWork() &#123;
+    using namespace std::literals::chrono_literals;
+    std::cout &lt;&lt; &quot;Started thread id=&quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; std::endl;
+    while (!s_Finished) &#123;
+        std::cout &lt;&lt; &quot;Working...\n&quot;;
+        std::this_thread::sleep_for(1s);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="12-4、计时"><a href="#12-4、计时" class="headerlink" title="12.4、计时"></a>12.4、计时</h3><p>c++11后可以使用标准库中的头文件<code>chrono</code>进行平台无关的计时操作。</p>
+<pre><code class="c++">using namespace std::literals::chrono_literals;
+auto start = std::chrono::high_resolution_clock().now();
+std::this_thread::sleep_for(1s);
+auto end = std::chrono::high_resolution_clock().now();
+
+std::chrono::duration&lt;float&gt; duration = end - start;
+std::cout &lt;&lt; duration.count() &lt;&lt; &quot;s\n&quot;;
+</code></pre>
+<h4 id="12-4-1、利用作用域实现自动计时："><a href="#12-4-1、利用作用域实现自动计时：" class="headerlink" title="12.4.1、利用作用域实现自动计时："></a>12.4.1、利用作用域实现自动计时：</h4><pre><code class="c++">struct Timer &#123;
+    std::chrono::steady_clock::time_point start, end;
+    std::chrono::duration&lt;float&gt; duration;
+    Timer() &#123;
+        start = std::chrono::high_resolution_clock().now();
+    &#125;
+    ~Timer() &#123;
+        end = std::chrono::high_resolution_clock().now();
+         duration = micro_end - micro_start;
+        float ms = duration.count() * 1000.0f;
+        std::cout &lt;&lt; &quot;Timer took &quot; &lt;&lt; ms &lt;&lt; &quot;ms\n&quot;;
+    &#125;
+&#125;;
+void Func() &#123;
+    Timer t;
+    for (int i = 0; i &lt; 100; i++)
+        std::cout &lt;&lt; &quot;Hello\n&quot;;
+&#125;
+</code></pre>
+<h4 id="12-4-2、benchmark（基准测试）"><a href="#12-4-2、benchmark（基准测试）" class="headerlink" title="12.4.2、benchmark（基准测试）"></a>12.4.2、benchmark（基准测试）</h4><p>用chrono精准测试程序运行时间</p>
+<pre><code class="c++">~Timer() &#123;
+    end = std::chrono::high_resolution_clock().now();
+    long long micro_start = std::chrono::time_point_cast
+            &lt;std::chrono::microseconds&gt;(start).time_since_epoch().count();
+    long long micro_end = std::chrono::time_point_cast
+            &lt;std::chrono::microseconds&gt;(end).time_since_epoch().count(); 
+    long long duration = micro_end - micro_start;
+    float ms = duration * 0.001f;
+    std::cout &lt;&lt; &quot;Timer took &quot; &lt;&lt; ms &lt;&lt; &quot;ms\n&quot;;
+&#125;
+</code></pre>
+<h4 id="12-4-3、可视化计时"><a href="#12-4-3、可视化计时" class="headerlink" title="12.4.3、可视化计时"></a>12.4.3、可视化计时</h4><p>在chrome或edge的地址栏输入tracing，然后将指定格式的json文件拖入窗口即可。</p>
+<p>生成json：</p>
+<pre><code class="c++">struct ProfilelResult &#123;
+    std::string Name;
+    long long Start, End;
+    uint32_t ThreadId;
+&#125;;
+
+struct InstrumentationSession &#123; std::string Name; &#125;;
+
+class Instrumentor &#123;
+private:
+    InstrumentationSession* m_CurrentSession;
+    std::ofstream m_OutputStream;
+    int m_ProfileCount;
+public:
+    Instrumentor() :m_CurrentSession(nullptr), m_ProfileCount(0) &#123;&#125;
+    void BeginSession(const std::string&amp; name, 
+                      const std::string&amp; path = &quot;result.json&quot;)&#123;
+        m_OutputStream.open(path);
+        WriteHeader();
+        m_CurrentSession = new InstrumentationSession&#123; name &#125;;
+    &#125;
+    void EndSession()&#123;
+        WriteFooter();
+        m_OutputStream.close();
+        delete m_CurrentSession;
+        m_CurrentSession = nullptr;
+        m_ProfileCount = 0;
+    &#125;
+    void WriteProfile(const ProfilelResult&amp; result)&#123;
+        if (m_ProfileCount++ &gt; 0)
+            m_OutputStream &lt;&lt; &quot;,&quot;;
+        std::string name = result.Name;
+        std::replace(name.begin(), name.end(), &#39;&quot;&#39;, &#39;\&#39;&#39;);
+        m_OutputStream &lt;&lt; &quot;&#123;&quot;;
+        m_OutputStream &lt;&lt; &quot;\&quot;cat\&quot;:\&quot;function\&quot;,&quot;;
+        m_OutputStream &lt;&lt; &quot;\&quot;dur\&quot;:&quot; &lt;&lt; (result.End - result.Start) &lt;&lt; &quot;,&quot;;
+        m_OutputStream &lt;&lt; &quot;\&quot;name\&quot;:\&quot;&quot; &lt;&lt; name &lt;&lt; &quot;\&quot;,&quot;;
+        m_OutputStream &lt;&lt; &quot;\&quot;ph\&quot;:\&quot;X\&quot;,&quot;;
+        m_OutputStream &lt;&lt; &quot;\&quot;pid\&quot;:&quot; &lt;&lt; result.ThreadId &lt;&lt; &quot;, &quot;;
+        m_OutputStream &lt;&lt; &quot;\&quot;tid\&quot;:0,&quot;;
+        m_OutputStream &lt;&lt; &quot;\&quot;ts\&quot;:&quot; &lt;&lt; result.Start;
+        m_OutputStream &lt;&lt; &quot;&#125;&quot;;
+        m_OutputStream.flush();
+    &#125;
+    void WriteHeader()&#123;
+        m_OutputStream &lt;&lt; &quot;&#123;\&quot;otherData\&quot;: &#123;&#125;, \&quot;traceEvents\&quot;:[&quot;;
+        m_OutputStream.flush();
+    &#125;
+    void WriteFooter()&#123;
+        m_OutputStream &lt;&lt; &quot;]&#125;&quot;;
+        m_OutputStream.flush();
+    &#125;
+    static Instrumentor&amp; Get()&#123;
+        static Instrumentor* instance = new Instrumentor;
+        return *instance;
+    &#125;
+&#125;;
+</code></pre>
+<p>计时器在结束计时时写入内容：</p>
+<pre><code class="c++">class InstrumentationTimer &#123;
+public:
+    std::chrono::steady_clock::time_point m_StartTimepoint, end;
+    std::chrono::duration&lt;float&gt; duration;
+    InstrumentationTimer(const char* name) :m_Name(name), m_Stopped(false) &#123;
+        m_StartTimepoint = std::chrono::high_resolution_clock().now();
+    &#125;
+    ~InstrumentationTimer() &#123; if (!m_Stopped) Stop(); &#125;
+    void Stop() &#123;
+        auto endTimepoint = std::chrono::high_resolution_clock().now();
+        long long start = std::chrono::time_point_cast
+            &lt;std::chrono::microseconds&gt;(m_StartTimepoint).time_since_epoch().count();
+        long long end = std::chrono::time_point_cast
+            &lt;std::chrono::microseconds&gt;(endTimepoint).time_since_epoch().count();
+        std::cout &lt;&lt; m_Name &lt;&lt; &quot;: &quot; &lt;&lt; (end - start) &lt;&lt; &quot;ms\n&quot;;
+
+        uint32_t threadId = std::hash&lt;std::thread::id&gt;&#123;&#125;(std::this_thread::get_id());
+        Instrumentor::Get().WriteProfile(&#123; m_Name, start, end, threadId&#125;);
+        m_Stopped = true;
+    &#125;
+private:
+    const char* m_Name;
+    bool m_Stopped;
+&#125;;
+</code></pre>
+<p>使用：</p>
+<pre><code class="c++">#define PROFILE_SCOPE(name) InstrumentationTimer timer##__LINE__(name)
+#define PROFILE_FUNCTION() PROFILE_SCOPE(__FUNCSIG__)
+
+void Function1() &#123;
+    PROFILE_FUNCTION();
+    for (int i = 0; i &lt; 1000; i++)
+        std::cout &lt;&lt; &quot;Hello World #&quot; &lt;&lt; i &lt;&lt; std::endl;
+&#125;
+
+void Function2() &#123;
+    PROFILE_FUNCTION();
+    for (int i = 0; i &lt; 1000; i++)
+        std::cout &lt;&lt; &quot;Hello World #&quot; &lt;&lt; sqrt(i) &lt;&lt; std::endl;
+&#125;
+
+void RunBenchmarks() &#123;
+    PROFILE_FUNCTION();
+    std::cout &lt;&lt; &quot;Running Benchmarks...\n&quot;;
+    Function1();
+    Function2();
+&#125;
+int main() &#123;
+    Instrumentor::Get().BeginSession(&quot;Profile&quot;);
+    RunBenchmarks();
+    Instrumentor::Get().EndSession();
+    return 0;
+&#125;
+</code></pre>
+<h3 id="12-5、async"><a href="#12-5、async" class="headerlink" title="12.5、async"></a>12.5、async</h3><p>头文件：<code>&lt;future&gt;</code></p>
+<p>异步执行指定函数。</p>
+<pre><code class="c++">std::async(std::launch::async, func);
+</code></pre>
+<ul>
+<li>第一个参数如果不是<code>async</code>，则不一定会在不同线程执行。</li>
+</ul>
+<pre><code class="c++">std::vector&lt;std::future&lt;void&gt;&gt; futures; // 保存临时future结果，确保for循环中多线程执行
+static std::mutex s_meshMutex;
+static void LoadMesh(const std::vector&lt;Mesh&gt;* meshes, std::string path)&#123;
+    auto mesh = Mesh::Load(path);
+    std::lock_guard&lt;std::mutex&gt; lock(s_meshMutex);
+    meshes-push_back(mesh);
+&#125;
+void LoadMeshes()&#123;
+    for(std::string&amp; path:paths)&#123;
+        futures.push_back(std::async(std::launch::async, LoadMesh, &amp;meshes, path));
+    &#125;
+&#125;
+</code></pre>
+<p><code>std::async</code>为什么一定要返回值？<br>如果没有返回值，那么在一次for循环之后，临时对象会被析构，而析构函数中需要等待线程结束，所以就和顺序执行一样，一个个的等下去。如果将返回值赋值给外部变量，那么生存期就在for循环之外，那么对象不会被析构，也就不需要等待线程结束。</p>
+<h2 id="13、c-17"><a href="#13、c-17" class="headerlink" title="13、c++17"></a>13、c++17</h2><h3 id="13-1、结构化绑定（tuple）"><a href="#13-1、结构化绑定（tuple）" class="headerlink" title="13.1、结构化绑定（tuple）"></a>13.1、结构化绑定（tuple）</h3><h3 id="13-2、optional"><a href="#13-2、optional" class="headerlink" title="13.2、optional"></a>13.2、optional</h3><p>用于处理可能存在的返回值。</p>
+<pre><code class="c++">std::optional&lt;std::string&gt; ReadFileAsString(const std::string&amp; path) &#123;
+    std::ifstream stream(path);
+    if (stream) &#123;
+        std::string res;
+        // read
+        stream.close();
+        return res;
+    &#125;
+    return &#123;&#125;;
+&#125;
+
+std::optional&lt;std::string&gt; data = ReadFileAsString(&quot;data.txt&quot;);
+std::string res = data.value_or(&quot;failed.&quot;);//返回为空时为结果设置默认值“failed”。
+if (data.has_value()) &#123; // Success.
+&#125;
+</code></pre>
+<h3 id="13-3、variant"><a href="#13-3、variant" class="headerlink" title="13.3、variant"></a>13.3、variant</h3><p>存储多种类型的单一变量。</p>
+<p>本质：创建类一个包含指定类型的结构体，因此大小是总和。</p>
+<p>与union相比：类型安全，但更耗费空间。</p>
+<pre><code class="c++">std::variant&lt;std::string, int&gt; data;
+data = &quot;hello&quot;;
+data.index(); // 0
+data = 0;
+data.index(); // 1
+std::get_if&lt;int&gt;(&amp;data);
+</code></pre>
+<h3 id="13-4、any"><a href="#13-4、any" class="headerlink" title="13.4、any"></a>13.4、any</h3><p>存储任意类型.</p>
+<p>原理：小类型使用union存放，大类型使用void*，动态分配内存。</p>
+<pre><code class="c++">std::any data;
+data = 0;
+data = &quot;hello&quot;;
+auto res = std::any_cast&lt;const char*&gt;(data);
+</code></pre>
+<h2 id="14、面试问题"><a href="#14、面试问题" class="headerlink" title="14、面试问题"></a>14、面试问题</h2><h3 id="14-1、虚函数表存放在哪里？"><a href="#14-1、虚函数表存放在哪里？" class="headerlink" title="14.1、虚函数表存放在哪里？"></a>14.1、虚函数表存放在哪里？</h3><p>虚函数表是存放在类中而不是对象中的。当生成类对象时，编译器将对象前四个字节设置为虚表地址，即<code>vfptr</code>。</p>
+<p>由于类的虚函数在定义时就确定了，因此在编译阶段就可以确定虚函数表的内容，所以虚函数表存放在全局区的常量段。</p>
+<h3 id="14-2、虚函数可以是静态函数吗？"><a href="#14-2、虚函数可以是静态函数吗？" class="headerlink" title="14.2、虚函数可以是静态函数吗？"></a>14.2、虚函数可以是静态函数吗？</h3><p>不可以。因为静态成员函数不需要传入this指针，所以不能通过this指针访问子类的<code>vfptr</code>，所以只会访问到父类的<code>vfptr</code>，也就无法实现多态。</p>
+<p>类似的问题</p>
+<ul>
+<li><p>静态成员函数不能为常函数：<code>static void fun() const &#123;&#125;</code></p>
+<p>因为一般的常函数通过将<code>this</code>指针定义为<code>const T*</code>实现其效果，而静态成员函数没有<code>this</code>指针。</p>
+</li>
+</ul>
+<h3 id="14-3、malloc和new的区别"><a href="#14-3、malloc和new的区别" class="headerlink" title="14.3、malloc和new的区别"></a>14.3、malloc和new的区别</h3><ul>
+<li><p><code>malloc</code>：<code>void *malloc(unsigned int size)</code></p>
+<p>在<code>堆</code>上申请<code>连续空间</code>，失败返回NULL，申请的内存<code>不会初始化</code>，会遗留之前程序的值</p>
+</li>
+<li><p><code>calloc</code>：<code>void *calloc(unsigned int num, unsigned int size)</code></p>
+<p>在<code>堆</code>上分配<code>num*size</code>大小的连续空间，并且将其中的值<code>初始化为0</code></p>
+</li>
+<li><p><code>realloc</code>：<code>void *realloc(void *ptr, unsigned int size)</code></p>
+<p>将<code>ptr</code>指向的内存长度更改为<code>size</code>，如果比之前大，新增的数据<code>不会初始化</code>。如果<code>ptr</code>的<code>连续空间不够</code>，则重新找一块分配，然后<code>拷贝</code>值，并将<code>ptr</code>指向<code>新的地址</code>。</p>
+<p><strong>不能用来操作栈上的空间。</strong></p>
+</li>
+<li><p><code>alloca</code>：在<code>栈上</code>申请内存，不会初始化。程序在出栈的时候，会自动释放内存。</p>
+</li>
+<li><p><code>new</code>：<code>自动计算</code>需要分配的空间，先调用<code>malloc</code>，再调用类的<code>构造函数</code>，对内存空间进行<code>初始化</code></p>
+</li>
+<li><p><code>placement_new</code>：定位new，允许我们向 new 传递额外的参数<code>指定内存分配的位置</code></p>
+<pre><code class="c++">//buffer为全局变量则空间为全局区，局部变量则为栈区
+char buffer[sizeof(T)];
+T *p1 = new T;
+T *p2 = new(buffer) T;//此时分配的内存即buffer的内存
+//delete p2; //不能用delete释放定位new的空间！！
+p2-&gt;~T(); //要调用析构函数释放
+</code></pre>
+</li>
+</ul>
+
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 Hello!我是李进.
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @李进
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "", clientSecret = "";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "",
+        owner: "",
+        admin: [""],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: true
+    })
+    gitalk.render("gitalk-container")
+</script>
+
+
+    </body>
+</html>
