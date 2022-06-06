@@ -147,7 +147,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Cpp" style="color: #03a9f4">
+                <a href="/tags/Cpp" style="color: #ffa2c4">
                     Cpp
                 </a>
             </span>
@@ -157,8 +157,6 @@
     </div>
     <div class="content" v-pre>
         <h2 id="1、基础概念"><a href="#1、基础概念" class="headerlink" title="1、基础概念"></a>1、基础概念</h2><h3 id="1-1、内存分区"><a href="#1-1、内存分区" class="headerlink" title="1.1、内存分区"></a>1.1、内存分区</h3><img src="/2022/06/06/CPP/image-20220329105743805.png" alt="image-20220329105743805" style="zoom:33%;">
-<!-- ![](image-20220329105743805.png) -->
-
 
 <ul>
 <li><p>程序运行前</p>
@@ -176,6 +174,7 @@
 </li>
 </ul>
 <span id="more"></span>
+
 <ul>
 <li><p>运行时</p>
 <p>堆区和栈区不占用进程地址空间。</p>
@@ -375,7 +374,9 @@ void UseSmartPointer()&#123;
     //...
 &#125; // song2 is deleted automatically here.
 </code></pre>
+<blockquote>
 <p>Efficient17：始终在单独的代码行上创建智能指针，而绝不在<code>参数列表</code>中创建智能指针，这样就不会由于某些参数列表分配规则而发生轻微泄露资源的情况。</p>
+</blockquote>
 <p>智能指针类型：</p>
 <ul>
 <li><p><code>unique_ptr</code></p>
