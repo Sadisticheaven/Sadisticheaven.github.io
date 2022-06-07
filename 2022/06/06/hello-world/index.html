@@ -14,6 +14,11 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+
+        <!-- fancybox -->
+        <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
     <meta name="generator" content="Hexo 6.2.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
@@ -118,47 +123,51 @@
                     </div>
                     <div id="main">
                         
-<div class="article">
-    <div>
-        <h1>Hello Hexo </h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/6/6
-        </span>
-        
-        <span class="category">
-            <a href="/categories/闲谈">
+
+
+<div id="home-posts-wrap" class=>
+
+    <div class="article">
+        <div>
+            <h1>Hello Hexo </h1>
+        </div>
+        <div class="info">
+            <span class="date">
                 <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                    <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
                 </span>
-                闲谈
-            </a>
-        </span>
-        
-        
-        <span class="tags">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+                2022/6/6
             </span>
             
-            <span class="tag">
-                
-                <a href="/tags/Hello-World" style="color: #ffa2c4">
-                    Hello World
+            <span class="category">
+                <a href="/categories/闲谈">
+                    <span class="icon">
+                        <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                    </span>
+                    闲谈
                 </a>
             </span>
             
-        </span>
-        
-    </div>
-    <div class="content" v-pre>
-        <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h1><p>本文章主要记录使用Hexo的一些坑，以供今后查阅。</p>
+            
+            <span class="tags">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+                </span>
+                
+                <span class="tag">
+                    
+                    <a href="/tags/Hello-World" style="color: #03a9f4">
+                        Hello World
+                    </a>
+                </span>
+                
+            </span>
+            
+        </div>
+        <div class="content" v-pre>
+            <h1 id="abstract"><span id="abstract">Abstract:</span></h1><p>本文章主要记录使用Hexo的一些坑，以供今后查阅。</p>
 <span id="more"></span>
-<Br>
+<br>
 
 <hr>
 <p>Hexo中加载图片：</p>
@@ -168,16 +177,29 @@
 </li>
 </ul>
 <hr>
-</Br>
-    </div>
-    
-    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
-    <div id="comment">
-        <div id="gitalk-container">
+<br>
         </div>
+        
+        <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+        <div id="comment">
+            <div id="gitalk-container">
+            </div>
+        </div>
+        
     </div>
     
+    
+        <div id="home-card">
+            <div id="card-div">
+                <div id="card-style" style="float: bottom; max-height: 300px; max-width: 300px; overflow: auto">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#abstract"><span class="toc-text">Abstract:</span></a></li></ol>
+                </div>
+            </div>             
+        </div>        
+        
+
 </div>
+
                          
 <footer id="footer">
     <div class="footer-wrap">
@@ -207,14 +229,14 @@
         
 <script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
 <script>
-    var clientID = "", clientSecret = "";
+    var clientID = "96735633454cee7c1a48", clientSecret = "3037483c5aedddc77a8b93c0d1f508de67ae8f78";
     
     const gitalk = new Gitalk({
         clientID: clientID,
         clientSecret: clientSecret,
-        repo: "",
-        owner: "",
-        admin: [""],
+        repo: "Sadisticheaven.github.io",
+        owner: "Sadisticheaven",
+        admin: ["Sadisticheaven"],
         language: "zh-CN",
         id: location.pathname,
         distractionFreeMode: true
@@ -223,5 +245,9 @@
 </script>
 
 
+        <!-- fancybox -->
+        <!-- 
+<script src="/js/fancybox.js"></script>
+ -->
     </body>
 </html>
