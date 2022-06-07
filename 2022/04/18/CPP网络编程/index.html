@@ -14,7 +14,9 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
         <!-- fancybox -->
         <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
@@ -156,28 +158,39 @@
                 
                 <span class="tag">
                     
-                    <a href="/tags/Cpp" style="color: #00a596">
+                    <a href="/tags/Cpp" style="color: #ff7d73">
                         Cpp
                     </a>
                 </span>
                 
                 <span class="tag">
                     
-                    <a href="/tags/Socket" style="color: #00bcd4">
+                    <a href="/tags/Socket" style="color: #ffa2c4">
                         Socket
                     </a>
                 </span>
                 
                 <span class="tag">
                     
-                    <a href="/tags/TCP/IP" style="color: #00a596">
+                    <a href="/tags/TCP/IP" style="color: #03a9f4">
                         TCP/IP
                     </a>
                 </span>
                 
             </span>
             
+            
+            <span class="readCounter">
+                <span class="icon">
+                    <i class="fa-solid fa-eye"></i>
+                </span>
+                <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span>次
+                </span>
+            </span> 
+            
         </div>
+        
         <div class="content" v-pre>
             <p>本文记录使用C++在Linux和Windows下进行Socket通信的方式。</p>
 <span id="more"></span>
@@ -372,25 +385,18 @@ SOCKET accept(SOCKET sock, struct sockaddr *addr, int *addrlen);  //Window
             </div>
         </div>
         
-        <div>
-            
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                <span id="busuanzi_container_page_pv">
-                    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-                </span>
-            
-        </div>
+        
+        
+        
     </div>
     
-    
-        <div id="home-card">
-            <div id="card-div">
-                <div id="card-style" style="float: bottom; max-height: 300px; max-width: 300px; overflow: auto">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socket"><span class="toc-text">socket()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bind"><span class="toc-text">bind()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#connect"><span class="toc-text">connect()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#listen"><span class="toc-text">listen()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#accept"><span class="toc-text">accept()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E5%92%8C%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-text">发送和接收数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E4%B8%8B"><span class="toc-text">Linux下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows"><span class="toc-text">Windows</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socket%E7%BC%93%E5%86%B2%E5%8C%BA%E5%92%8C%E9%98%BB%E5%A1%9E%E6%A8%A1%E5%BC%8F"><span class="toc-text">socket缓冲区和阻塞模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-text">缓冲区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E%E6%A8%A1%E5%BC%8F"><span class="toc-text">阻塞模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcp%E7%9A%84%E7%B2%98%E5%8C%85%E6%95%B0%E6%8D%AE%E6%97%A0%E8%BE%B9%E7%95%8C%E6%80%A7"><span class="toc-text">TCP的粘包（数据无边界性）</span></a></li></ol>
-                </div>
-            </div>             
-        </div>        
-        
+    <div id="home-card">
+        <div id="card-div">
+            <div id="card-style" style="float: bottom; max-height: 300px; max-width: 300px; overflow: auto">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socket"><span class="toc-text">socket()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bind"><span class="toc-text">bind()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#connect"><span class="toc-text">connect()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#listen"><span class="toc-text">listen()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#accept"><span class="toc-text">accept()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E5%92%8C%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-text">发送和接收数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E4%B8%8B"><span class="toc-text">Linux下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows"><span class="toc-text">Windows</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socket%E7%BC%93%E5%86%B2%E5%8C%BA%E5%92%8C%E9%98%BB%E5%A1%9E%E6%A8%A1%E5%BC%8F"><span class="toc-text">socket缓冲区和阻塞模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-text">缓冲区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E%E6%A8%A1%E5%BC%8F"><span class="toc-text">阻塞模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcp%E7%9A%84%E7%B2%98%E5%8C%85%E6%95%B0%E6%8D%AE%E6%97%A0%E8%BE%B9%E7%95%8C%E6%80%A7"><span class="toc-text">TCP的粘包（数据无边界性）</span></a></li></ol>
+            </div>
+        </div>             
+    </div>
 
 </div>
 
@@ -408,14 +414,14 @@ SOCKET accept(SOCKET sock, struct sockaddr *addr, int *addrlen);  //Window
         <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
                 target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
         
-        <div>
-            
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-                <span class="post-meta-divider">|</span>
-                <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>⼈</span>
-            
-        </div>
+        
+        
+        <div id="visitCounter">
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>⼈</span>
+        </div>             
+        
     </div>
 </footer>
                     </div>

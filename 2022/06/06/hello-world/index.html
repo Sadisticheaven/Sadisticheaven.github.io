@@ -14,7 +14,9 @@
         <link rel="stylesheet" href="/css/fonts.min.css">
         <link rel="stylesheet" href="/css/particlex.css">
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
         <!-- fancybox -->
         <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
@@ -156,28 +158,68 @@
                 
                 <span class="tag">
                     
-                    <a href="/tags/Hello-World" style="color: #00a596">
+                    <a href="/tags/Hello-World" style="color: #00bcd4">
                         Hello World
                     </a>
                 </span>
                 
             </span>
             
+            
+            <span class="readCounter">
+                <span class="icon">
+                    <i class="fa-solid fa-eye"></i>
+                </span>
+                <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span>次
+                </span>
+            </span> 
+            
         </div>
+        
         <div class="content" v-pre>
             <h1 id="abstract"><span id="abstract">Abstract:</span></h1><p>本文章主要记录使用Hexo的一些坑，以供今后查阅。</p>
 <span id="more"></span>
 <br>
 
 <hr>
-<p>Hexo中加载图片：</p>
-<ul>
+<h1 id="hexo中加载图片"><span id="hexo中加载图片">Hexo中加载图片</span></h1><ul>
 <li>首先要下载hexo-asset-image，经过测试，使用该链接下载的插件可以正常工作：<pre><code class="bash">npm install https://github.com/CodeFalling/hexo-asset-image --save
 </code></pre>
 </li>
 </ul>
 <hr>
-<p>等待施工~~~</p>
+<h1 id="为主题添加访问计数"><span id="为主题添加访问计数">为主题添加访问计数</span></h1><h2 id="网站访问计数"><span id="网站访问计数">网站访问计数</span></h2><ul>
+<li>引入<code>不蒜子</code>：在主题的<code>layout/layout.ejs</code>中按以下格式导入<pre><code class="ejs">&lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>在网站底部，即<code>footer.ejs</code>的合适位置添加如下代码：<pre><code class="ejs">&lt;div id=&quot;visitCounter&quot;&gt;
+    &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次&lt;/span&gt;
+    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;
+    &lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;⼈&lt;/span&gt;
+&lt;/div&gt;  
+</code></pre>
+</li>
+</ul>
+<h2 id="文章阅读计数"><span id="文章阅读计数">文章阅读计数</span></h2><p>在<code>article.ejs</code>的合适位置添加如下代码：</p>
+<pre><code class="ejs">&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;
+    共阅读&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次
+&lt;/span&gt; 
+</code></pre>
+<p>使用FontAwesome 6的<code>眼睛</code>图标：</p>
+<ul>
+<li>在layout中导入：<pre><code class="ejs">&lt;script src=&quot;https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>文章中显示：<pre><code class="ejs">&lt;span class=&quot;icon&quot;&gt;
+    &lt;i class=&quot;fa-solid fa-eye&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;
+    &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;
+&lt;/span&gt; 
+</code></pre>
+等待施工~~~</li>
+</ul>
 <br>
         </div>
         
@@ -187,25 +229,18 @@
             </div>
         </div>
         
-        <div>
-            
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                <span id="busuanzi_container_page_pv">
-                    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-                </span>
-            
-        </div>
+        
+        
+        
     </div>
     
-    
-        <div id="home-card">
-            <div id="card-div">
-                <div id="card-style" style="float: bottom; max-height: 300px; max-width: 300px; overflow: auto">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#abstract"><span class="toc-text">Abstract:</span></a></li></ol>
-                </div>
-            </div>             
-        </div>        
-        
+    <div id="home-card">
+        <div id="card-div">
+            <div id="card-style" style="float: bottom; max-height: 300px; max-width: 300px; overflow: auto">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#abstract"><span class="toc-text">Abstract:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo%E4%B8%AD%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87"><span class="toc-text">Hexo中加载图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0"><span class="toc-text">为主题添加访问计数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0"><span class="toc-text">网站访问计数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E8%AE%A1%E6%95%B0"><span class="toc-text">文章阅读计数</span></a></li></ol></li></ol>
+            </div>
+        </div>             
+    </div>
 
 </div>
 
@@ -223,14 +258,14 @@
         <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
                 target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
         
-        <div>
-            
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-                <span class="post-meta-divider">|</span>
-                <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>⼈</span>
-            
-        </div>
+        
+        
+        <div id="visitCounter">
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>⼈</span>
+        </div>             
+        
     </div>
 </footer>
                     </div>
