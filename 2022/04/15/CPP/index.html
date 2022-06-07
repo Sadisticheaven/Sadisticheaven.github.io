@@ -136,7 +136,7 @@
                 <span class="icon">
                     <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
                 </span>
-                2022/6/6
+                2022/4/15
             </span>
             
             <span class="category">
@@ -156,7 +156,7 @@
                 
                 <span class="tag">
                     
-                    <a href="/tags/Cpp" style="color: #ff7d73">
+                    <a href="/tags/Cpp" style="color: #ffa2c4">
                         Cpp
                     </a>
                 </span>
@@ -171,7 +171,7 @@
 
 <hr>
 <hr>
-<h1 id="基础概念"><span id="基础概念">基础概念</span></h1><h2 id="内存分区"><span id="内存分区">内存分区</span></h2><img src="/2022/06/06/CPP/image-20220329105743805.png" alt="image-20220329105743805" style="zoom:33%;">
+<h1 id="基础概念"><span id="基础概念">基础概念</span></h1><h2 id="内存分区"><span id="内存分区">内存分区</span></h2><img src="/2022/04/15/CPP/image-20220329105743805.png" alt="image-20220329105743805" style="zoom:33%;">
 
 <ul>
 <li><p>程序运行前</p>
@@ -495,7 +495,7 @@ void myPrint(initializer_list&lt;T&gt; args)&#123;
     &#125;
 &#125;
 </code></pre>
-<h2 id="函数调用过程"><span id="函数调用过程">函数调用过程</span></h2><img src="/2022/06/06/CPP/image-20220418191402896.png" alt="image-20220418191402896" style="zoom: 33%;">
+<h2 id="函数调用过程"><span id="函数调用过程">函数调用过程</span></h2><img src="/2022/04/15/CPP/image-20220418191402896.png" alt="image-20220418191402896" style="zoom: 33%;">
 
 <pre><code class="c++">void foo(int n)&#123;&#125;
 void bar(int n)&#123; int a = n+1; foo(a); &#125;
@@ -790,7 +790,7 @@ a(&quot;Hello&quot;);
 <li><p>保护继承</p>
 </li>
 <li><p>私有继承</p>
-<p><img src="/2022/06/06/CPP/image-20220316164333045.png" alt="image-20220316164333045"></p>
+<p><img src="/2022/04/15/CPP/image-20220316164333045.png" alt="image-20220316164333045"></p>
 </li>
 </ul>
 <h3 id="继承中的对象模型"><span id="继承中的对象模型">继承中的对象模型</span></h3><p>从父类继承过来的成员，哪些在子类对象中？<br>使用VS的开发人员命令工具查看对象模型，在文件目录中键入<br><code>cl /d1 reportSingleClassLayout类名 cpp文件名</code></p>
@@ -828,14 +828,14 @@ Derive::Base::x;
 <li>同名成员二义。可以使用作用域解决。</li>
 <li>两个父类继承了两份祖父成员，造成存储空间浪费。使用<code>虚继承</code>解决。</li>
 </ul>
-<img src="/2022/06/06/CPP/image-20220316174254382.png" alt="image-20220316174254382" style="zoom:33%;">
+<img src="/2022/04/15/CPP/image-20220316174254382.png" alt="image-20220316174254382" style="zoom:33%;">
 
 <p>使用虚继承后：</p>
 <pre><code class="c++">class B: virtual public A&#123;&#125;;
 </code></pre>
-<img src="/2022/06/06/CPP/image-20220316175014242.png" alt="image-20220316175014242" style="zoom: 50%;">
+<img src="/2022/04/15/CPP/image-20220316175014242.png" alt="image-20220316175014242" style="zoom: 50%;">
 
-<img src="/2022/06/06/CPP/image-20220316174651096.png" alt="image-20220316174651096" style="zoom:50%;">
+<img src="/2022/04/15/CPP/image-20220316174651096.png" alt="image-20220316174651096" style="zoom:50%;">
 
 <p><code>vbptr</code>指向对应的<code>vbtable</code>。<br>如B的<code>vbptr</code>指向<code>D::$vbtable@B@</code>，然后通过在指针的地址0上加上保存的偏移量20得到虚基类的起始地址。</p>
 <p>访问虚基类的属性：通过子类直接访问。</p>
@@ -873,29 +873,29 @@ doSpeak(cat); // 调用的是cat的speak
 <h3 id="动态多态原理"><span id="动态多态原理">动态多态原理</span></h3><p>类中声明虚函数后，类的大小将会增加4字节(多个虚函数也是一样)，即一个虚函数表指针<code>vfptr</code>。<code>vfptr</code>指向<code>vftable</code>。</p>
 <p><code>vftable</code>内部记录虚函数的地址。</p>
 <p>如果子类没有重写父类虚函数，则子类会继承父类的<code>vfptr</code>和<code>vftable</code>。</p>
-<img src="/2022/06/06/CPP/image-20220316182304572.png" alt="image-20220316182304572" style="zoom: 50%;">
+<img src="/2022/04/15/CPP/image-20220316182304572.png" alt="image-20220316182304572" style="zoom: 50%;">
 
 <p>如果重写虚函数：子类继承<code>vftable</code>后会将对应的虚函数地址替换成子类重写的函数的地址。</p>
-<img src="/2022/06/06/CPP/image-20220316182424382.png" alt="image-20220316182424382" style="zoom:50%;">
+<img src="/2022/04/15/CPP/image-20220316182424382.png" alt="image-20220316182424382" style="zoom:50%;">
 
 <p><strong>子类对象使用::可以调用基类的虚函数实现。</strong></p>
 <p>多继承下的虚函数：</p>
 <ul>
 <li>B、C、D均不使用虚继承。</li>
 </ul>
-<img src="/2022/06/06/CPP/image-20220316183158931.png" alt="image-20220316183158931" style="zoom:33%;">
+<img src="/2022/04/15/CPP/image-20220316183158931.png" alt="image-20220316183158931" style="zoom:33%;">
 
 <p>D有两个虚函数表，分别从B和C继承过来。此时如果在D中重写A的虚函数则会修改两张表。</p>
-<img src="/2022/06/06/CPP/image-20220316185739268.png" alt="image-20220316185739268" style="zoom:33%;">
+<img src="/2022/04/15/CPP/image-20220316185739268.png" alt="image-20220316185739268" style="zoom:33%;">
 
 <ul>
 <li><p>B、C使用虚继承：</p>
-<img src="/2022/06/06/CPP/image-20220316184225728.png" alt="image-20220316184225728" style="zoom: 33%;">
+<img src="/2022/04/15/CPP/image-20220316184225728.png" alt="image-20220316184225728" style="zoom: 33%;">
 
 <p>D会存在A、B、C的三个虚函数表，这是由于B、C是虚继承，所以当B、C也声明虚函数后，会重新创建一个虚函数表。</p>
 </li>
 <li><p>B、C虚继承，D重写A中的虚函数<code>func1</code>：</p>
-<img src="/2022/06/06/CPP/image-20220316184942732.png" alt="image-20220316184942732" style="zoom:33%;"></li>
+<img src="/2022/04/15/CPP/image-20220316184942732.png" alt="image-20220316184942732" style="zoom:33%;"></li>
 </ul>
 <h3 id="纯虚函数和抽象类"><span id="纯虚函数和抽象类">纯虚函数和抽象类</span></h3><p>在多态中，通常父类中的虚函数实现是毫无意义的，主要都是调用子类重写的内容，因此可以将虚函数改为<code>纯虚函数</code>。</p>
 <p><code>抽象类</code>：包含纯虚函数的类。</p>
@@ -1583,7 +1583,7 @@ f22() = 777;//a.m = 777
 <li><code>datagram</code>：数据报传输，基于<code>UDP</code>，不可靠，可能丢失和乱序。对数据长度有限制，效率高。<code>音视频聊天</code>可以采用。应用场景越来越少。</li>
 </ul>
 <p>socket通信流程：</p>
-<img src="/2022/06/06/CPP/socket客户端服务器通讯.jpg" alt="socket客户端服务器通讯" style="zoom:50%;">
+<img src="/2022/04/15/CPP/socket客户端服务器通讯.jpg" alt="socket客户端服务器通讯" style="zoom:50%;">
 
 <h2 id="socket"><span id="socket">socket()</span></h2><pre><code class="c++">int socket(int af, int type, int protocol);//Linux
 SOCKET socket(int af, int type, int protocol);//Windows
@@ -1655,7 +1655,7 @@ unsigned long ip = inet_addr(&quot;127.0.0.1&quot;);
 </li>
 </ul>
 <p><strong>为什么要转换为<code>sockaddr</code>:</strong></p>
-<img src="/2022/06/06/CPP/image-20220325171617582.png" alt="image-20220325171617582" style="zoom: 50%;">
+<img src="/2022/04/15/CPP/image-20220325171617582.png" alt="image-20220325171617582" style="zoom: 50%;">
 
 <ul>
 <li>两者长度都是16B，只是<code>sockaddr</code>将地址和端口合并到一起。要给<code>sa_data</code>赋值必须同时指定，如<code>&quot;127.0.0.1:80&quot;</code>，但没有相关函数将字符串转成需要的形式，所以很难给<code>sockaddr</code>赋值，因此使用<code>sockaddr_in</code>代替。</li>

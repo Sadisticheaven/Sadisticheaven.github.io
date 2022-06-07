@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>C++网络编程 | Hello!我是李进.</title>
+        <meta name="author" content="李进">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="/image/avatar.jpg">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+
+        <!-- fancybox -->
+        <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"> </script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hello!我是李进.</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Hello!我是李进.</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+
+
+<div id="home-posts-wrap" class=>
+
+    <div class="article">
+        <div>
+            <h1>C++网络编程 </h1>
+        </div>
+        <div class="info">
+            <span class="date">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+                </span>
+                2022/4/18
+            </span>
+            
+            <span class="category">
+                <a href="/categories/学习笔记">
+                    <span class="icon">
+                        <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                    </span>
+                    学习笔记
+                </a>
+            </span>
+            
+            
+            <span class="tags">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+                </span>
+                
+                <span class="tag">
+                    
+                    <a href="/tags/Cpp" style="color: #03a9f4">
+                        Cpp
+                    </a>
+                </span>
+                
+                <span class="tag">
+                    
+                    <a href="/tags/Socket" style="color: #00bcd4">
+                        Socket
+                    </a>
+                </span>
+                
+                <span class="tag">
+                    
+                    <a href="/tags/TCP/IP" style="color: #ffa2c4">
+                        TCP/IP
+                    </a>
+                </span>
+                
+            </span>
+            
+        </div>
+        <div class="content" v-pre>
+            <p>本文记录使用C++在Linux和Windows下进行Socket通信的方式。</p>
+<span id="more"></span>
+
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/2123.html">socket是什么？套接字是什么？ (biancheng.net)</a></p>
+<h1 id="基本概念"><span id="基本概念">基本概念</span></h1><p>socket提供两种通信机制：</p>
+<ul>
+<li><code>stream</code>：流式传输，基于<code>TCP</code>，有序、可靠、双向字节流。</li>
+<li><code>datagram</code>：数据报传输，基于<code>UDP</code>，不可靠，可能丢失和乱序。对数据长度有限制，效率高。<code>音视频聊天</code>可以采用。应用场景越来越少。</li>
+</ul>
+<p>socket通信流程：</p>
+<img src="/2022/04/18/CPP%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/socket客户端服务器通讯.jpg" alt="socket客户端服务器通讯" style="zoom:50%;">
+
+<h1 id="socket"><span id="socket">socket()</span></h1><pre><code class="c++">int socket(int af, int type, int protocol);//Linux
+SOCKET socket(int af, int type, int protocol);//Windows
+</code></pre>
+<ul>
+<li><code>af</code>：协议族（Address Family），即IP<em>地址类型</em>。也可以写作PF（Protocol Family），因此所有<code>AF_XX</code>等价于<code>PF_XX</code>。<ul>
+<li><code>AF_INET</code>：IPv4地址，如127.0.0.1。</li>
+<li><code>AF_INET6</code>：IPv6地址，如1030::C9B4:FF12:48AA:1A2B。</li>
+</ul>
+</li>
+<li><code>type</code>：<em>数据传输方式</em>，即socket类型。<ul>
+<li><code>SOCK_STREAM</code>：流式，基于TCP</li>
+<li><code>SOCK_DGRAM</code>：数据报，基于UDP</li>
+</ul>
+</li>
+<li><code>protocol</code>：<em>传输协议</em>。<ul>
+<li>0：根据<code>af</code>和<code>type</code>自动推导。当两种不同协议支持同一种<code>af</code>和<code>type</code>时，无法自动推导。</li>
+<li><code>IPPROTO_TCP</code>：TCP传输协议</li>
+<li><code>IPPROTO_UDP</code>：UDP传输协议</li>
+</ul>
+</li>
+</ul>
+<pre><code class="c++">SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
+</code></pre>
+<h1 id="bind"><span id="bind">bind()</span></h1><p>将具体的地址和端口绑定到<code>socket</code></p>
+<blockquote>
+<p>注意绑定前要转为<code>网络字节序</code>。</p>
+<ul>
+<li><code>htons()</code>：host to network short</li>
+<li><code>htonl()</code>：host to network long</li>
+<li><code>ntohl()</code>：network to host long</li>
+<li><code>ntohs()</code>：network to host short</li>
+</ul>
+</blockquote>
+<pre><code class="c++">int bind(int sock, struct sockaddr *addr, socklen_t addrlen);  //Linux
+int bind(SOCKET sock, const struct sockaddr *addr, int addrlen);  //Windows
+</code></pre>
+<ul>
+<li><p><code>sock</code>：由socket()产生的socket描述符。</p>
+</li>
+<li><p><code>addrlen</code>：<code>addr</code>的大小，由<code>sizeof</code>计算。</p>
+</li>
+<li><p>返回值：</p>
+</li>
+<li><p><code>addr</code>：<code>sockaddr</code>结构体指针，将<code>sockaddr_in</code>转换得到</p>
+<blockquote>
+<pre><code class="c++">struct sockaddr_in&#123;
+    sa_family_t     sin_family;   //地址类型
+    uint16_t        sin_port;     //16位的端口号
+    struct in_addr  sin_addr;     //32位IP地址
+    char            sin_zero[8];  //不使用，一般用0填充
+&#125;;
+</code></pre>
+</blockquote>
+<ul>
+<li><p><code>sin_family</code>：和<code>socket()</code>的<code>af</code>取值一致。</p>
+</li>
+<li><p><code>sin_port</code>：端口号，取值范围为<code>1024~65536</code>，需要使用<code>htons()</code>进行转换。</p>
+</li>
+<li><p><code>sin_addr</code>：<code>in_addr</code>结构体。</p>
+<blockquote>
+<pre><code class="c++">struct in_addr&#123;
+    in_addr_t  s_addr;  //32位的IP地址，等价于unsigned long，是一个整数
+&#125;;
+//因为s_addr是一个整数，而IP地址一般是字符串，所以要使用inet_addr()进行转换
+unsigned long ip = inet_addr(&quot;127.0.0.1&quot;);
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p><strong>为什么要转换为<code>sockaddr</code>:</strong></p>
+<img src="/2022/04/18/CPP%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/image-20220325171617582.png" alt="image-20220325171617582" style="zoom: 50%;">
+
+<ul>
+<li>两者长度都是16B，只是<code>sockaddr</code>将地址和端口合并到一起。要给<code>sa_data</code>赋值必须同时指定，如<code>&quot;127.0.0.1:80&quot;</code>，但没有相关函数将字符串转成需要的形式，所以很难给<code>sockaddr</code>赋值，因此使用<code>sockaddr_in</code>代替。</li>
+<li><code>sockaddr</code>更通用，而<code>sockaddr_in</code>和<code>sockaddr_in6</code>分别保存IPv4和IPv6地址。</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<pre><code class="c++">sockaddr_in sockAddr;
+memset(&amp;sockAddr, 0, sizeof(sockaddr_in)); //内存初始化为0
+sockAddr.sin_family = AF_INET;
+sockAddr.sin_port = htons(PORT);
+sockAddr.sin_addr.S_un.S_addr = inet_addr(&quot;127.0.0.1&quot;);
+bind(servSock, (sockaddr*)&amp;servAddr, sizeof (servAddr));
+</code></pre>
+<h1 id="connect"><span id="connect">connect()</span></h1><pre><code class="c++">int connect(int sock, struct sockaddr *serv_addr, socklen_t addrlen);  //Linux
+int connect(SOCKET sock, const struct sockaddr *serv_addr, int addrlen);  //Windows
+</code></pre>
+<p>用来建立连接，参数和<code>bind()</code>相同，但<code>connect()</code>用于客户端。</p>
+<h1 id="listen"><span id="listen">listen()</span></h1><p>使socket进入被动监听。即没有客户端请求时，socket处于“睡眠”，当接收到请求时，才会“唤醒”。</p>
+<pre><code class="c++">int listen(int sock, int backlog);  //Linux
+int listen(SOCKET sock, int backlog);  //Windows
+</code></pre>
+<ul>
+<li><code>sock</code>：进入监听的socket</li>
+<li><code>backlog</code>：<code>请求队列</code>的最大长度，如果为<code>SOMAXCONN</code>表示由系统决定，一般比较大。</li>
+</ul>
+<p>请求队列</p>
+<ul>
+<li>socket正在处理客户端请求时，有新的请求进来，就将新请求放入缓冲区，即请求队列。</li>
+<li>当请求队列满时，不再接受新请求，Linux的客户端会收到<code>ECONNREFUSED</code>，Windows会收到<code>WSAECONNRESFUSED</code>。</li>
+</ul>
+<h1 id="accept"><span id="accept">accept()</span></h1><p>listen()只是监听请求，accept()才真正接受并处理。accept会<code>阻塞</code>程序，直到有新的请求到来。</p>
+<pre><code class="c++">int accept(int sock, struct sockaddr *addr, socklen_t *addrlen);  //Linux
+SOCKET accept(SOCKET sock, struct sockaddr *addr, int *addrlen);  //Window
+</code></pre>
+<ul>
+<li><code>sock</code>：<code>服务器端</code>的socket</li>
+<li><code>addr</code>：保存<code>客户端</code>的IP地址和端口号</li>
+<li>返回值：一个新的socket，专门用来与该次请求的客户端通信</li>
+</ul>
+<h1 id="发送和接收数据"><span id="发送和接收数据">发送和接收数据</span></h1><h2 id="linux下"><span id="linux下">Linux下：</span></h2><p>万物皆可为文件，因此socket和普通文件一样，可以直接使用<code>write()/read()</code>发送和接受数据</p>
+<ul>
+<li><pre><code class="c++">ssize_t write(int fd, const void *buf, size_t nbytes);
+</code></pre>
+<ul>
+<li><code>fd</code>：要写入的文件描述符，即socket</li>
+<li><code>buf</code>：要写入的数据的地址</li>
+<li><code>nbytes</code>：要写入的字节数</li>
+<li>返回值：写入成功返回字节数，失败返回-1</li>
+</ul>
+</li>
+<li><pre><code class="c++">ssize_t read(int fd, void *buf, size_t nbytes);
+</code></pre>
+<ul>
+<li><code>fd</code>：要读取的文件描述符，即socket</li>
+<li><code>buf</code>：存放读取出来的数据的地址</li>
+<li><code>nbytes</code>：要读取的字节数</li>
+<li>返回值：读取成功返回字节数，如果读取到文件结尾返回0，失败返回-1</li>
+</ul>
+</li>
+</ul>
+<h2 id="windows"><span id="windows">Windows</span></h2><p>需要用专门的<code>send()/recv()</code></p>
+<ul>
+<li><pre><code class="c++">int send(SOCKET sock, const char *buf, int len, int flags);
+</code></pre>
+<ul>
+<li>flags：发送数据时的选项。一般设置为0。</li>
+</ul>
+</li>
+<li><pre><code class="c++">int recv(SOCKET sock, char *buf, int len, int flags);
+</code></pre>
+</li>
+</ul>
+<h1 id="socket缓冲区和阻塞模式"><span id="socket缓冲区和阻塞模式">socket缓冲区和阻塞模式</span></h1><h2 id="缓冲区"><span id="缓冲区">缓冲区</span></h2><p><strong>每个</strong>socket创建后都会有两个缓冲区，<code>输入缓冲区</code>和<code>输出缓冲区</code>。</p>
+<p>write和send并不立即向网络中传输数据，而是先将数据<code>写入输出缓冲区</code>，再通过TCP协议将数据从缓冲区发送到目标机器。一旦数据写入缓冲区，函数就返回，不管发送。</p>
+<p>read和recv同理。</p>
+<p>缓冲区特性：</p>
+<ul>
+<li>在每个TCP socket中单独存在</li>
+<li>创建socket时自动生成</li>
+<li>关闭socket后TCP<strong>仍会发送输出缓冲区的数据</strong></li>
+<li>关闭socket后输入缓冲区数据丢失</li>
+<li>大小一般为8KB，通过<code>getsockopt</code>获取</li>
+<li>发送方在接收到ACK后才会清空输出缓冲区</li>
+</ul>
+<h2 id="阻塞模式"><span id="阻塞模式">阻塞模式</span></h2><p>对于TCP socket，默认是阻塞的，也可以修改为非阻塞。</p>
+<p>使用write和send发送数据时：</p>
+<ul>
+<li>首先检查输出缓冲区，如果空间不够则阻塞，直到发送足够数据后空间足够才唤醒</li>
+<li>如果TCP正在发送数据，阻塞write和send，直到发送完毕。</li>
+<li>如果写入数据大于缓冲区，分批写入。</li>
+<li>直到所有数据写入缓冲区，write和send才返回。</li>
+</ul>
+<p>使用read和recv读取时：</p>
+<ul>
+<li>首先检查输入缓冲区，如果有数据则读取，否则阻塞直到有数据</li>
+<li>如果要读取的长度小于缓冲区中数据长度，则剩余数据会积压，直到再次读取。</li>
+<li>直到读取到数据后才会返回，否则一直阻塞。</li>
+</ul>
+<h1 id="tcp的粘包数据无边界性"><span id="tcp的粘包数据无边界性">TCP的粘包（数据无边界性）</span></h1><p>因为read时缓冲区数据可能是多次write的结果，所以无法区分每一次write的数据边界。例如两次分别写入1和3，读取时会读出13。</p>
+
+        </div>
+        
+        <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+        <div id="comment">
+            <div id="gitalk-container">
+            </div>
+        </div>
+        
+    </div>
+    
+    
+        <div id="home-card">
+            <div id="card-div">
+                <div id="card-style" style="float: bottom; max-height: 300px; max-width: 300px; overflow: auto">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socket"><span class="toc-text">socket()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bind"><span class="toc-text">bind()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#connect"><span class="toc-text">connect()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#listen"><span class="toc-text">listen()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#accept"><span class="toc-text">accept()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E5%92%8C%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-text">发送和接收数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E4%B8%8B"><span class="toc-text">Linux下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows"><span class="toc-text">Windows</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socket%E7%BC%93%E5%86%B2%E5%8C%BA%E5%92%8C%E9%98%BB%E5%A1%9E%E6%A8%A1%E5%BC%8F"><span class="toc-text">socket缓冲区和阻塞模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-text">缓冲区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E%E6%A8%A1%E5%BC%8F"><span class="toc-text">阻塞模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcp%E7%9A%84%E7%B2%98%E5%8C%85%E6%95%B0%E6%8D%AE%E6%97%A0%E8%BE%B9%E7%95%8C%E6%80%A7"><span class="toc-text">TCP的粘包（数据无边界性）</span></a></li></ol>
+                </div>
+            </div>             
+        </div>        
+        
+
+</div>
+
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 Hello!我是李进.
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @李进
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "96735633454cee7c1a48", clientSecret = "3037483c5aedddc77a8b93c0d1f508de67ae8f78";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "Sadisticheaven.github.io",
+        owner: "Sadisticheaven",
+        admin: ["Sadisticheaven"],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: true
+    })
+    gitalk.render("gitalk-container")
+</script>
+
+
+        <!-- fancybox -->
+        <!-- 
+<script src="/js/fancybox.js"></script>
+ -->
+    </body>
+</html>
